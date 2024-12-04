@@ -1,0 +1,26 @@
+.info>p{
+    color: white;
+}
+.info{
+    text-align:initial;
+    width: 500px;
+    margin-left:40px;
+    margin-top: -70px;
+}
+
+.infocontainer{
+         display: flex;
+         justify-content: space-between;
+         margin-top: 80px;
+         align-items: center;
+}
+
+
+.button{
+    margin-top: 35px;
+}
+
+.image{
+    margin-right: 40px;
+}
+

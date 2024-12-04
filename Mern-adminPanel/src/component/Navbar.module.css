@@ -1,0 +1,34 @@
+
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin: 10px;
+   
+  
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.navbar>ul{
+    display: flex;
+    gap: 25px;
+}
+
+.navbar>li{
+    list-style: none;
+  
+}
+
+.navbar>ul>li>a , .logo>a {
+    text-decoration: none;
+    color: rgb(59, 70, 216);
+    font-size: 17px;
+}

@@ -1,0 +1,25 @@
+.aboutContainer{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     width: 100%;
+
+}
+
+.aboutInfo {
+  color: white;
+  text-align: initial;
+  width: 500px;
+  margin-left: 40px;
+  
+}
+ .aboutInfo>p{
+  color: white;
+  margin-top: 25px;
+}
+
+.aboutImage{
+    width: 400px;
+    height: 400px;
+    margin-right: 40px;
+}

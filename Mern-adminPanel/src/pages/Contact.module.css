@@ -1,0 +1,96 @@
+.h1{
+    color: white;
+    text-align: center;
+    margin-left: 50px;
+}
+
+.container{
+   margin-top: -10px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+
+}
+.image{
+    width: 600px;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+.formconatainer{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+ 
+}
+.form{
+    width: 350px;
+    height: 350px;
+    margin: auto;
+    padding: 10px;
+   
+    
+}
+
+.form>input{
+   width: 350px;
+   height: 28px;
+   margin-left: 40px;
+   margin-top: 40px;
+   border: 1px solid rgba(128, 128, 128, 0.212);
+   outline: none;
+   border-radius: 5px;
+   background-color: rgb(29, 29, 29);
+   padding: 10px;
+   font-size: 16px;
+   color: white;
+   /* box-shadow: inset 5px 5px 5px rgb(0, 0, 0); */
+
+}
+
+.form>textarea{
+    width: 350px;
+    height: 90px;
+    margin-left: 40px;
+    margin-top: 40px;
+    border: 1px solid rgba(128, 128, 128, 0.212);
+    outline: none;
+    border-radius: 5px;
+    background-color: rgb(29, 29, 29);
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+}
+
+
+
+.form>label{
+    color: white;
+    position: absolute;
+    margin-top: -75px;
+    margin-left: 45px;
+    font-size: 15px;
+   
+}
+
+
+.form>button{
+    margin-top: 20px;
+    margin-left: 40%;
+    width: 150px;
+    height: 35px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(5, 113, 201);
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+
