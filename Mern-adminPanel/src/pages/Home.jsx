@@ -16,8 +16,8 @@ const Home = () =>{
                 we specialize in providing innovative IT services and solutions
                 tailored to meet your unique needs.</p>
                   <div className={css.button} style={{gap:"20px",display:"flex"}}>
-                    <button style={{backgroundColor:"rgb(59, 70, 216)",border:"none",height:"30px" , borderRadius:"5px"}}><NavLink to="/contact" style={{color:"white", textDecoration:"none", fontSize:"15px"}}>Connect Now</NavLink></button>
-                    <button style={{ border:"none",borderRadius:"5px",border:"2px solid white",width:"100px",backgroundColor:"whitesmoke"}}><NavLink to="/about" style={{color:"black",textDecoration:"none",fontSize:"15px"}}>Learn More</NavLink></button>
+                    <button className={css.b1} style={{backgroundColor:"rgb(59, 70, 216)", height:"30px", borderRadius:"5px"}}><NavLink to="/contact" style={{color:"white", textDecoration:"none", fontSize:"15px"}}>Connect Now</NavLink></button>
+                    <button className={css.b2} style={{ borderRadius:"5px",width:"100px",backgroundColor:"whitesmoke"}}><NavLink to="/about" style={{color:"black",textDecoration:"none",fontSize:"15px"}}>Learn More</NavLink></button>
                   </div>
                 </div>
 
