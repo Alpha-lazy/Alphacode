@@ -42,7 +42,7 @@ export const AuthProvider = ({children}) =>{
     // making function for the fetching the data from backend
 
     const Connect = async(path,user) => {
-          return  await fetch(`https://alphacode.onrender.com/${path}` , {
+          return  await fetch(`https://alphacode.onrender.com${path}` , {
             method:"POST",
             headers:{
                 "Content-Type" :"application/json"
