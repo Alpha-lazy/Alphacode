@@ -16,7 +16,7 @@ app.use(express.json());
 // cors access
 
 const corsOption = {
-    origin:"http://localhost:5173",
+    origin:"https://alphacode.onrender.com",
     method:"GET, POST, PUT, DELETE, PATCH, HEAD",
     credential:true
 }

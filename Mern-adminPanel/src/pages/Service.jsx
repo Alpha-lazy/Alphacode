@@ -10,7 +10,7 @@ const Service = () => {
     useEffect(() => {
         setLoader(true)
         const fetchdata = async () => {
-            const responce = await fetch('http://localhost:5000/api/data/service', {
+            const responce = await fetch('https://alphacode.onrender.com/api/data/service', {
                 method: "GET"
             });
             const res_data = await responce.json();

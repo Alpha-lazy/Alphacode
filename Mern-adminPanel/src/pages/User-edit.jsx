@@ -33,7 +33,7 @@ const { id } = state;
     const handleForm = async(e) =>{
        e.preventDefault();
         
-       const responce = await fetch(`http://localhost:5000/admin/user/edit/${id}`, {
+       const responce = await fetch(`https://alphacode.onrender.com/admin/user/edit/${id}`, {
         method: 'PUT',
         headers: {
           Authorization: Admintoken,

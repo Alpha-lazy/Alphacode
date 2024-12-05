@@ -14,7 +14,7 @@ function Admincontact() {
   const contactdata = async () => {
     setLoader(true)
    setcontactData([])
-    const responce = await fetch('http://localhost:5000/admin/contact', {
+    const responce = await fetch('https://alphacode.onrender.com/admin/contact', {
       method: 'GET',
       headers: {
         Authorization: Admintoken
@@ -41,7 +41,7 @@ function Admincontact() {
   
 
   const deleteContact = async(id) =>{
-    const Contactres = await fetch(`http://localhost:5000/admin/contact/delete/${id}`, {
+    const Contactres = await fetch(`https://alphacode.onrender.com/admin/contact/delete/${id}`, {
       method: 'DELETE',
       headers: {
         Authorization: Admintoken

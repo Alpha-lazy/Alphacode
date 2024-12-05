@@ -12,7 +12,7 @@ function AdminUser() {
  
    const Adminuser = async () => {
      setLoader(true)
-     const responce = await fetch('http://localhost:5000/admin/user', {
+     const responce = await fetch('https://alphacode.onrender.com/admin/user', {
        method: 'GET',
        headers: {
          Authorization: Admintoken
@@ -40,7 +40,7 @@ function AdminUser() {
     if (userid !== id ) {
       
 
-    const deletedData = await fetch(`http://localhost:5000/admin/user/delete/${id}`,{
+    const deletedData = await fetch(`https://alphacode.onrender.com/admin/user/delete/${id}`,{
       method:"DELETE",
       headers: {
         Authorization: Admintoken

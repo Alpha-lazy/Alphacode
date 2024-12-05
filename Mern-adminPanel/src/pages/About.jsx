@@ -19,7 +19,7 @@ const About = () => {
     if (isloggedIn) {
         
    const token = localStorage.getItem('token');
-    const userinfo = await fetch('http://localhost:5000/api/auth/user',{
+    const userinfo = await fetch('https://alphacode.onrender.com/api/auth/user',{
         method:"GET",
        headers:{
         "Authorization":`Bearer ${token}`
