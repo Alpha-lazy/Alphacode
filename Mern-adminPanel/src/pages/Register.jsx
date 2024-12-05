@@ -2,7 +2,7 @@ import css from "./Register.module.css"
 import {useState} from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../store/auth";
-import Signupimage from "../image/signup.png"
+import Signupimage from "../image/Signup.png"
 import {toast} from 'react-toastify';
 
 const Register = () =>{
