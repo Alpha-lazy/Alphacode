@@ -77,7 +77,7 @@ const blockedUser = async(id) =>{
     const data = await blockedUser.json();
     toast.success(data.message)
     blockedUser()
-    Adminuser(id)
+    Adminuser()
     
   }
   else{
