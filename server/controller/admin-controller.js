@@ -68,12 +68,16 @@ const userdata = async(req,res) =>{
   const blockedData = async(req,res) =>{
     try {
           const data = await Block.find({});
-          if (data.lenght === 0) {
-            return res.status(404).json({message:"No any blocked user exist"})
+    
+          
+          if (data.length === 0) {
+             res.status(404).json({message:"No any blocked user exist"})
           }
-          else{
+        else{
             res.status(200).json(data);
-          }
+        }
+           
+          
           
 
     } catch (error) {
