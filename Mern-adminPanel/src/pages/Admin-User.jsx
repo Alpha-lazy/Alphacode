@@ -10,12 +10,13 @@ function AdminUser() {
    const [loader, setLoader] = useState(true);
    const [errMessage, seterrMessage] = useState();
  
+   const token = localStorage.getItem('token').toString()
    const Adminuser = async () => {
      setLoader(true)
      const responce = await fetch('https://alphacode.onrender.com/admin/user', {
        method: 'GET',
        headers: {
-         Authorization: Admintoken
+         Authorization: token
        }
      
      });
