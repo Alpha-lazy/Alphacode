@@ -64,6 +64,36 @@ const userdata = async(req,res) =>{
     }
 
   }
+
+  const blockedData = async(req,res) =>{
+    try {
+          const data = await Block.find({});
+          if (data.lenght === 0) {
+            res.status(404).json({message:"No any blocked user exist"})
+        }
+          res.status(200).json(data);
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message:"Internal server error"})
+        
+    }
+  }
+
+  const unblockUser = async(req,res) =>{ 
+    try {
+
+       let id  = req.params.id
+        await Block.deleteOne({_id:id});
+         res.status(200).json({message:"User unblocked successfully"});
+
+    } catch (error) {
+        console.log(error);
+        res.status(200).json({message:"Internal server error"}); 
+    }
+
+    
+  }
  
 
 
@@ -105,4 +135,4 @@ const userdata = async(req,res) =>{
 
 
 
-module.exports = {userdata,contactdata,deleteUser,editUser,deleteContact,blockUser};
+module.exports = {userdata,contactdata,deleteUser,editUser,deleteContact,blockUser,blockedData,unblockUser};

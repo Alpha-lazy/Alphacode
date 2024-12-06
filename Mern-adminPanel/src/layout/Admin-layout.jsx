@@ -27,7 +27,7 @@ function Adminlayout() {
                             <NavLink to="/admin/contacts"><FaMessage style={{marginRight:"5px"}}/>Contacts</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/service"><MdListAlt style={{marginRight:"5px"}}/>Services</NavLink>
+                            <NavLink to="/admin/block"><MdListAlt style={{marginRight:"5px"}}/>Blocked</NavLink>
                         </li>
                         <li>
                             <NavLink to="/"><FaHome style={{marginRight:"5px",height:"20px",width:"20px"}}/>Home</NavLink>

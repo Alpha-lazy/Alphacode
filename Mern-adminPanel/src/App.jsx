@@ -16,6 +16,7 @@ import AdminUser from './pages/Admin-User'
 import Admincontact from './pages/Admin-contact'
 import Useredit from './pages/User-edit'
 import Footer from './component/footer'
+import Adminblock from './pages/Admin-block'
 
 function App() {
   
@@ -39,6 +40,7 @@ function App() {
                    <Route path='user' element={<AdminUser/>}/>
                    <Route path='contacts' element={<Admincontact/>}/>
                    <Route path='edit' element={<Useredit/>}/>
+                   <Route path='block' element={<Adminblock/>}/>
             </Route>
             
           </Routes>

@@ -11,5 +11,7 @@ router.route("/user/edit/:id").put(authMiddleware,adminMiddleware, admincontroll
 router.route("/contact").get(authMiddleware ,adminMiddleware, admincontroller.contactdata)
 router.route("/contact/delete/:id").delete(authMiddleware ,adminMiddleware, admincontroller.deleteContact)
 router.route("/user/block/:id").post(authMiddleware ,adminMiddleware, admincontroller.blockUser)
+router.route("/user/block/data").get(authMiddleware ,adminMiddleware, admincontroller.blockedData)
+router.route("/user/block/:id").delete(authMiddleware ,adminMiddleware, admincontroller.unblockUser)
 
 module.exports = router;
