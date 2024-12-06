@@ -79,7 +79,7 @@ const blockedUser = async(id) =>{
     const data = await blockedUser.json();
     toast.success(data.message)
     blockedUser()
-    const deletedData = await fetch(`https://alphacode.onrender.com/admin/user/delete/${id}`,{
+     await fetch(`https://alphacode.onrender.com/admin/user/delete/${id}`,{
       method:"DELETE",
       headers: {
         Authorization: Admintoken
