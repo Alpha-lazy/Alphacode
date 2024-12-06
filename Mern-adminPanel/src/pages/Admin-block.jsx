@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {toast} from 'react-toastify';
 
 function Adminblock() {
@@ -40,7 +40,9 @@ function Adminblock() {
 
               if (responce.ok) {
                 const data = await responce.json()
+                   Blockedata()
                    toast.success(data.message)
+
               } 
 
               else{
@@ -48,6 +50,11 @@ function Adminblock() {
                 toast.error(data.message)
               }
         }
+
+        useEffect(()=>{
+            Blockedata()
+            unblockuser()
+        },[])
   return (
     <table style={{ display: "flex", justifyContent: "center", alignItems: "center", textAlign: "center",marginTop:"80px", borderCollapse: "collapse" }}>
     <tbody style={{ backgroundColor: 'white', height: "400px", borderRadius: "10px",overflow:"auto"  }}>
