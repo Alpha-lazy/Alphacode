@@ -54,7 +54,7 @@ const userdata = async(req,res) =>{
   const blockUser = async(req,res) => {
     try {
         let id = req.params.id;
-        const data = await User.find({_id:id});
+        const data = await User.findOne({_id:id});
          await Block.insertMany(data);
          res.status(200).json({message:"User is blocked and deleted"})
 
