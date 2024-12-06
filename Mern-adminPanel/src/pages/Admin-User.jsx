@@ -34,11 +34,11 @@ function AdminUser() {
  
    }
     
-  const deletdata = async(id) =>{
+const deletdata = async(id) =>{
 
     
     if (userid !== id ) {
-      
+
 
     const deletedData = await fetch(`https://alphacode.onrender.com/admin/user/delete/${id}`,{
       method:"DELETE",
@@ -56,11 +56,45 @@ function AdminUser() {
     else{
       toast.error(data.message)
     }
+
   }
   else{
        toast.warn("You don't delete yourself")
   }
 }
+
+const blockedUser = async(id) =>{
+  if(userid !== id){
+  const blockedUser = await fetch(`https://alphacode.onrender.com/admin/user/block/${id}`, {
+    method:"POST",
+    headers: {
+      Authorization: Admintoken
+    }
+    
+  })
+
+  if (blockedUser.ok) {
+    const data = await blockedUser.json();
+    toast.success(data.message)
+    blockedUser()
+    Adminuser(id)
+    
+  }
+  else{
+    const data = await blockedUser.json();
+    toast.error(data.message)
+  }
+
+ 
+
+  }
+
+
+  else{
+    toast.warn("You don't blocked yourself")
+  }
+}
+
 
 const editdata =  (editId) =>{
   if (userid !== editId) {
@@ -78,6 +112,7 @@ const editdata =  (editId) =>{
 
    useEffect(() => {
      Adminuser()
+     blockedUser()
  
    }, [])
   return (
@@ -106,6 +141,7 @@ const editdata =  (editId) =>{
                 <td style={{ width: "157px" }}>{userData.phone}</td>
                 <td style={{ width: "157px" }}><button style={{ width: "60px", height: "30px",border:"none", borderRadius: "30px", backgroundColor: "#2bcd2b", fontSize: "15px", cursor: "pointer", fontWeight: "500", color: "white" }} onClick={()=>{editdata(userData._id)}}>Edit</button></td>
                 <td style={{ width: "157px" }}><button style={{ width: "80px", height: "30px",border:"none", borderRadius: "30px", backgroundColor: "#ff3838", fontSize: "15px", cursor: "pointer", fontWeight: "500", color: "white" }} onClick={()=>{deletdata(userData._id)}}>Delete</button></td>
+                <td style={{ width: "157px" }}><button style={{ width: "80px", height: "30px",border:"none", borderRadius: "30px", backgroundColor: "#ff3838", fontSize: "15px", cursor: "pointer", fontWeight: "500", color: "white" }} onClick={()=>{blockedUser(userData._id)}}>Block</button></td>
               </tr>
               
                

@@ -1,6 +1,7 @@
 
 const User = require('../model/user-model');
 const contact = require('../model/contact-model');
+const Block = require('../model/blocked-model');
 
 const userdata = async(req,res) =>{
     try {
@@ -50,6 +51,21 @@ const userdata = async(req,res) =>{
     }
  }
 
+  const blockUser = async(req,res) => {
+    try {
+        let id = req.params.id;
+        const data = await User.find({_id:id});
+         await Block.insertOne(data);
+         res.status(200).json({message:"User is blocked and deleted"})
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message:"internal server error"})
+    }
+
+  }
+ 
+
 
  const contactdata = async(req,res) => {
     try {
@@ -89,4 +105,4 @@ const userdata = async(req,res) =>{
 
 
 
-module.exports = {userdata,contactdata,deleteUser,editUser,deleteContact};
+module.exports = {userdata,contactdata,deleteUser,editUser,deleteContact,blockUser};

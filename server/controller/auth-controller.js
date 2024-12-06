@@ -1,3 +1,4 @@
+const Block = require("../model/blocked-model");
 const User = require("../model/user-model");
 const router = require("../router/auth-route");
 const bcrypt = require("bcryptjs");
@@ -50,13 +51,16 @@ const login = async (req, res) => {
     try {
         const user = req.body;
         const userExist = await User.findOne({ email: user.email });
-
+        const userBlocked = await Block.findOne({email:user.email})
 
         // finde user with this email is exist in database
         if (!userExist) {
             return res.status(400).json({ message: "invalid cradentials" });
         }
 
+        if (userBlocked) {
+            return res.status(400).json({message:"You are blocked"})
+        }
         // if user exist in the database then compare the passsword
 
         const userPassword = await userExist.comparePassword(user.password);
