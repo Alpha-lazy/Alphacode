@@ -69,7 +69,7 @@ const userdata = async(req,res) =>{
     try {
           const data = await Block.find({});
           if (data.lenght === 0) {
-            res.status(404).json({message:"No any blocked user exist"})
+            return res.status(404).json({message:"No any blocked user exist"})
         }
           res.status(200).json(data);
 
