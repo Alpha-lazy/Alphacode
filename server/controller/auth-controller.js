@@ -18,8 +18,9 @@ const home = (req, res) => {
 const register = async (req, res) => {
     try {
         // we request to body for data
-
+        
         const { username, email, phone, password } = req.body;
+        const userBlocked = await Block.findOne({email:email})
 
         // finding if userexist 
 
@@ -29,7 +30,9 @@ const register = async (req, res) => {
             return res.status(400).json({ message: "User is already exist" });
         }
         //  hash the password
-
+        if (userBlocked) {
+            return res.status(400).json({message:"You are blocked"})
+        }
 
         // create and insert the data
     
@@ -51,16 +54,14 @@ const login = async (req, res) => {
     try {
         const user = req.body;
         const userExist = await User.findOne({ email: user.email });
-        const userBlocked = await Block.findOne({email:user.email})
+        
 
         // finde user with this email is exist in database
         if (!userExist) {
             return res.status(400).json({ message: "invalid cradentials" });
         }
 
-        if (userBlocked) {
-            return res.status(400).json({message:"You are blocked"})
-        }
+        
         // if user exist in the database then compare the passsword
 
         const userPassword = await userExist.comparePassword(user.password);
