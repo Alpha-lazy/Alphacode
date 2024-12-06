@@ -47,14 +47,13 @@ function Adminblock() {
               } 
 
               else{
-                const data = await responce.json()
-                toast.error(data.message)
+                toast.error("user is not unblocked")
               }
         }
 
         useEffect(()=>{
             Blockedata()
-            unblockuser()
+           
         },[])
   return (
     <table style={{ display: "flex", justifyContent: "center", alignItems: "center", textAlign: "center",marginTop:"80px", borderCollapse: "collapse" }}>
