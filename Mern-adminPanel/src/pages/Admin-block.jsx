@@ -27,7 +27,7 @@ function Adminblock() {
                 const responce = await data.json();
                 SetErrMessage(responce.message)
                 console.log(errMessage);
-                
+                setLoader(false)
             }
 
         }
