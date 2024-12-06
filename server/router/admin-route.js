@@ -5,7 +5,7 @@ const adminMiddleware = require("../middleware/admin-middleware");
 const router = express.Router();
 
 
-router.route("/user").get(authMiddleware, adminMiddleware, admincontroller.userdata);
+router.route("/user/data").get(authMiddleware, adminMiddleware, admincontroller.userdata);
 router.route("/user/delete/:id").delete(authMiddleware, adminMiddleware, admincontroller.deleteUser)
 router.route("/user/edit/:id").put(authMiddleware,adminMiddleware, admincontroller.editUser)
 router.route("/contact").get(authMiddleware ,adminMiddleware, admincontroller.contactdata)
