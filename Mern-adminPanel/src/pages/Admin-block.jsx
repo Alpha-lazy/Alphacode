@@ -70,7 +70,7 @@ function Adminblock() {
 
 
       {
-        loader ? <h4>Loading...</h4>:contactData.length === 0 ? <h4>{errMessage}</h4>: blockData.map((blockData, index) => {
+        loader ? <h4>Loading...</h4>:blockData.length === 0 ? <h4>{errMessage}</h4>: blockData.map((blockData, index) => {
 
           return <><tr key={index} style={{ height: "54px" }}>
             <td style={{ width: "157px" }}>{blockData.email}</td>
