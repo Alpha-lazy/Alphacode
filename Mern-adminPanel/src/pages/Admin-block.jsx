@@ -60,7 +60,7 @@ function Adminblock() {
     <tbody style={{ backgroundColor: 'white', height: "400px", borderRadius: "10px",overflow:"auto"  }}>
 
       <tr style={{ height: "50px", textAlign: "center" }}>
-        <th style={{ width: "157px", borderBottom: "2px solid blue", borderCollapse: "collapse" }}>Email</th>
+        <th style={{ width: "357px", borderBottom: "2px solid blue", borderCollapse: "collapse" }}>Email</th>
         <th style={{ width: "157px", borderBottom: "2px solid blue", borderCollapse: "collapse" }}>Unblock</th>
 
       </tr>
