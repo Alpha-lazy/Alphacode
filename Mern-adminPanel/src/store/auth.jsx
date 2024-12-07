@@ -56,7 +56,7 @@ export const AuthProvider = ({children}) =>{
 
         }
         navigate(0)
-        navigate(0)
+        
     }
       
      const isAdmin = admin
