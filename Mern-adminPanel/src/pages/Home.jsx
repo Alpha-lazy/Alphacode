@@ -4,8 +4,9 @@ import css from "./Home.module.css"
 import homeImage from "../image/home-img.png"
 import { useAuth } from "../store/auth";
 const Home = () =>{
-  const { modified} = useAuth()
-   
+  const { isAdmin ,modified} = useAuth()
+  modified()
+  isAdmin=isAdmin
 
      useEffect(()=>{
         modified()
