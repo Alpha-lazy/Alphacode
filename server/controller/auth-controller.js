@@ -13,6 +13,10 @@ const home = async(req, res) => {
             res.status(200).json({token: await userdata.generateToken()})
             
         }
+        else{
+            let userdata = req.user
+            res.status(400).json({token: await userdata.generateToken()})  
+        }
        
     } catch (error) {
         res.status(500).json({message:'Internal Server Error'});

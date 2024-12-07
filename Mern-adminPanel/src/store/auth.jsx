@@ -30,23 +30,7 @@ export const AuthProvider = ({children}) =>{
      else{
       admin = false
      }
-     const modified = async() => {
-        const responce = await fetch('https://alphacode.onrender.com/api/auth/', {
-               method:"GET",
-               headers:{
-                 Authorization:Admintoken,
-               }
-
-        })
-        
-        if (responce.ok) {
-            let data = await responce.json()
-            localStorage.setItem('token',data.token);
-            admin = decodeToken(data.token).isAdmin  ;
-            userid = decodeToken(data.token).userId;
-            toast.success("You are admin")
-        }
-    }
+    
       
      const isAdmin = !!admin
     
@@ -70,7 +54,7 @@ export const AuthProvider = ({children}) =>{
     }
 
     return (
-        <AuthContext.Provider value={{storeTokenInLS,LogoutUser,isloggedIn,Connect,isAdmin,Admintoken,userid,modified}}>
+        <AuthContext.Provider value={{storeTokenInLS,LogoutUser,isloggedIn,Connect,isAdmin,Admintoken,userid}}>
             {children}
         </AuthContext.Provider>
     );
