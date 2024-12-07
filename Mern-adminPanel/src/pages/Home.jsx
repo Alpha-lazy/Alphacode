@@ -5,7 +5,7 @@ import homeImage from "../image/home-img.png"
 import { useAuth } from "../store/auth";
 const Home = () =>{
   const { isAdmin ,modified} = useAuth()
-  modified()
+ 
   isAdmin=isAdmin
 
      useEffect(()=>{
