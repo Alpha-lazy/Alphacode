@@ -20,7 +20,7 @@ const Home = () =>{
                   <p>We are the World best it Company</p>
                   <h1 style={{color:"white", fontSize:"30px",margin:"0px"}}>Welcome to Alpha Code</h1>
                   <p>Are you ready to take your business to the next level with
-                cutting-edge IT solutions? Look no further! At Thapa Technical,
+                cutting-edge IT solutions? Look no further! At Alpha Code,
                 we specialize in providing innovative IT services and solutions
                 tailored to meet your unique needs.</p>
                   <div className={css.button} style={{gap:"20px",display:"flex"}}>
