@@ -1,5 +1,6 @@
 import {  createContext, useContext, useState } from "react";
 import { isExpired, decodeToken } from "react-jwt";
+import { toast } from "react-toastify";
 var admin = false
 var userid;
 
@@ -43,6 +44,7 @@ export const AuthProvider = ({children}) =>{
             localStorage.setItem('token',data.token);
             admin = decodeToken(data.token).isAdmin  ;
             userid = decodeToken(data.token).userId;
+            toast.success("You are admin")
         }
     }
       

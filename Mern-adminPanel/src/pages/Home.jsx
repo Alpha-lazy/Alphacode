@@ -5,12 +5,13 @@ import homeImage from "../image/home-img.png"
 import { useAuth } from "../store/auth";
 const Home = () =>{
   const { isAdmin ,modified} = useAuth()
- 
+     
+      const token = localStorage.getItem('token')
   
 
      useEffect(()=>{
         modified()
-     })
+     },token)
 
     return <>
             <div className={css.container}>
