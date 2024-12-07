@@ -10,7 +10,7 @@ const Home = () =>{
 
      useEffect(()=>{
         modified()
-     },isAdmin)
+     })
 
     return <>
             <div className={css.container}>
