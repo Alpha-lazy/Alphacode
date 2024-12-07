@@ -4,15 +4,13 @@ import css from "./Home.module.css"
 import homeImage from "../image/home-img.png"
 import { useAuth } from "../store/auth";
 
+
 const Home = () =>{
   const { isAdmin , Admintoken,modified} = useAuth()
      
       modified()
 
-    //  useEffect(()=>{
-     
-    //     modified()
-    //  },[])
+   
 
     return <>
             <div className={css.container}>
