@@ -42,7 +42,7 @@ export const AuthProvider = ({children}) =>{
       else{
         let data = await responce.json()
         localStorage.setItem('token',data.token);
-        isAdmin= false;   
+        
 
       }
       
