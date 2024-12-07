@@ -30,9 +30,34 @@ export const AuthProvider = ({children}) =>{
      else{
       admin = false
      }
-    
+     const modified = async() => {
+        const responce = await fetch('https://alphacode.onrender.com/api/auth/', {
+               method:"GET",
+               headers:{
+                 Authorization:Admintoken,
+               }
+
+        })
+        
+        if (responce.ok) {
+            let data = await responce.json()
+            localStorage.setItem('token',data.token);
+            isAdmin = true;
+            admin = decodeToken(token).isAdmin  ;
+            userid = decodeToken(token).userId;
+            toast.success("You are admin")
+        }
+        else{
+          let data = await responce.json()
+          localStorage.setItem('token',data.token);
+          isAdmin= false;
+          
+
+        }
+       
+    }
       
-     const isAdmin = !!admin
+     const isAdmin = admin
     
     // this is the function for logout page
     const LogoutUser = () =>{
@@ -54,7 +79,7 @@ export const AuthProvider = ({children}) =>{
     }
 
     return (
-        <AuthContext.Provider value={{storeTokenInLS,LogoutUser,isloggedIn,Connect,isAdmin,Admintoken,userid}}>
+        <AuthContext.Provider value={{storeTokenInLS,LogoutUser,isloggedIn,Connect,isAdmin,Admintoken,userid,modified}}>
             {children}
         </AuthContext.Provider>
     );

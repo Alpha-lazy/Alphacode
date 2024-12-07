@@ -3,41 +3,16 @@ import { NavLink } from "react-router-dom";
 import css from "./Home.module.css"
 import homeImage from "../image/home-img.png"
 import { useAuth } from "../store/auth";
-import { toast } from "react-toastify";
+
 const Home = () =>{
-  const { isAdmin , Admintoken} = useAuth()
+  const { isAdmin , Admintoken,modified} = useAuth()
      
-      const token = localStorage.getItem('token')
-      const modified = async() => {
-        const responce = await fetch('https://alphacode.onrender.com/api/auth/', {
-               method:"GET",
-               headers:{
-                 Authorization:Admintoken,
-               }
+      modified()
 
-        })
-        
-        if (responce.ok) {
-            let data = await responce.json()
-            localStorage.setItem('token',data.token);
-            isAdmin = true;
-            // userid = decodeToken(data.token).userId;
-            toast.success("You are admin")
-        }
-        else{
-          let data = await responce.json()
-          localStorage.setItem('token',data.token);
-          isAdmin= false;
-          
-
-        }
-       
-    }
-
-     useEffect(()=>{
+    //  useEffect(()=>{
      
-        modified()
-     },[])
+    //     modified()
+    //  },[])
 
     return <>
             <div className={css.container}>
