@@ -29,6 +29,22 @@ export const AuthProvider = ({children}) =>{
      else{
       admin = false
      }
+     const modified = async() => {
+        const responce = await fetch('', {
+               method:"GET",
+               headers:{
+                 Authorization:Admintoken,
+               }
+
+        })
+        
+        if (responce.ok) {
+            let data = await responce.json()
+            localStorage.setItem('token',data.token);
+            admin = decodeToken(data.token).isAdmin  ;
+            userid = decodeToken(data.token).userId;
+        }
+    }
       
      const isAdmin = !!admin
     
@@ -52,7 +68,7 @@ export const AuthProvider = ({children}) =>{
     }
 
     return (
-        <AuthContext.Provider value={{storeTokenInLS,LogoutUser,isloggedIn,Connect,isAdmin,Admintoken,userid}}>
+        <AuthContext.Provider value={{storeTokenInLS,LogoutUser,isloggedIn,Connect,isAdmin,Admintoken,userid,modified}}>
             {children}
         </AuthContext.Provider>
     );

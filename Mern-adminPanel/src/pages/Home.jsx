@@ -4,24 +4,11 @@ import css from "./Home.module.css"
 import homeImage from "../image/home-img.png"
 import { useAuth } from "../store/auth";
 const Home = () =>{
-  const { Admintoken } = useAuth()
-     const modified = async() => {
-         const responce = await fetch('', {
-                method:"GET",
-                headers:{
-                  Authorization:Admintoken,
-                }
-
-         })
-         
-         if (responce.ok) {
-             let data = await responce.json()
-             localStorage.setItem('token',data.token);
-         }
-     }
+  const { modified} = useAuth()
+   
 
      useEffect(()=>{
-           modified()
+        modified()
      },[])
 
     return <>
