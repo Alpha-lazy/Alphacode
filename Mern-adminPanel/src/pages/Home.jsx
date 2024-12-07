@@ -6,11 +6,11 @@ import { useAuth } from "../store/auth";
 const Home = () =>{
   const { isAdmin ,modified} = useAuth()
  
-  isAdmin=isAdmin
+  
 
      useEffect(()=>{
         modified()
-     },[])
+     },isAdmin)
 
     return <>
             <div className={css.container}>
