@@ -5,8 +5,8 @@ import {toast} from 'react-toastify';
 
 
 function Admincontact() {
-  const { Admintoken } = useAuth()
-
+  const { Admintoken,modified } = useAuth()
+  modified()
   const [contactData, setcontactData] = useState([]);
   const [errMessage, seterrMessage] = useState();
   const [loader, setLoader] = useState(true)

@@ -23,6 +23,31 @@ export const AuthProvider = ({children}) =>{
 
     };
 
+    const modified = async() => {
+      const responce = await fetch('https://alphacode.onrender.com/api/auth/', {
+             method:"GET",
+             headers:{
+               Authorization:Admintoken,
+             }
+
+      })
+      
+      if (responce.ok) {
+          let data = await responce.json()
+          storeTokenInLS(data.token)
+          toast.success("You are admin")
+         
+      }
+      else{
+        let data = await responce.json()
+        localStorage.setItem('token',data.token);
+        isAdmin= false;   
+
+      }
+      
+      
+  }
+
     // THis operator is used to convert the value in boolean
     const isloggedIn = !!token;
     if (isloggedIn) {
@@ -32,34 +57,7 @@ export const AuthProvider = ({children}) =>{
      else{
       admin = false
      }
-     const modified = async() => {
-        const responce = await fetch('https://alphacode.onrender.com/api/auth/', {
-               method:"GET",
-               headers:{
-                 Authorization:Admintoken,
-               }
-
-        })
-        
-        if (responce.ok) {
-            let data = await responce.json()
-            storeTokenInLS(data.token)
-            // localStorage.setItem('token',data.token);
-            // isAdmin = true;
-            // admin = decodeToken(data.token).isAdmin  ;
-            // userid = decodeToken(data.token).userId;
-            toast.success("You are admin")
-           
-        }
-        else{
-          let data = await responce.json()
-          localStorage.setItem('token',data.token);
-          isAdmin= false;   
-
-        }
-        
-        
-    }
+    
       
      const isAdmin = admin
     

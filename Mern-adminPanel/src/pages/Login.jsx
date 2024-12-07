@@ -15,7 +15,8 @@ const Login = () => {
         password:""
     })
     
-    const {storeTokenInLS,Connect,isloggedIn} = useAuth();
+    const {storeTokenInLS,Connect,isloggedIn,modified} = useAuth();
+    modified()
     const navigate = useNavigate()
     const handleInput = (e) =>{
         let name = e.target.name;

@@ -10,7 +10,8 @@ const About = () => {
         username:""
     })
 
-    const {isloggedIn} = useAuth()
+        const {isloggedIn,modified} = useAuth()
+        modified()
     useEffect(()=>{
   
         const fetchdata = async() =>{

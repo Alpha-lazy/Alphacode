@@ -7,9 +7,9 @@ import { useNavigation } from "react-router-dom";
 
 const Home = () =>{
   const { isAdmin , Admintoken,modified} = useAuth()
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
       modified()
-      navigate(0)
+      // navigate(0)
    
 
     return <>

@@ -4,11 +4,11 @@ import { useAuth } from '../store/auth';
 import {toast} from 'react-toastify';
 
 function Adminblock() {
-    const { Admintoken } = useAuth()
+    const { Admintoken ,modified} = useAuth()
   const [blockData,setBlockData]  = useState([])
   const [loader,setLoader]  = useState(true)
   const [errMessage,SetErrMessage]  = useState()
-
+   modified()
         const Blockedata = async() =>{
             setLoader(true)
             const data = await fetch('https://alphacode.onrender.com/admin/user/block/data' , {

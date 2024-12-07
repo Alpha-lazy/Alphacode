@@ -3,10 +3,13 @@ import css from "./Service.module.css"
 import image from '../image/Service.png'
 import { useEffect, useState } from "react"
 import spiner from '../image/loader.gif'
+import { useAuth } from "../store/auth"
 
 const Service = () => {
     const [data, setData] = useState([]);
     const [loader,setLoader] = useState(true)
+    const {modified} = useAuth()
+    modified()
     useEffect(() => {
         setLoader(true)
         const fetchdata = async () => {

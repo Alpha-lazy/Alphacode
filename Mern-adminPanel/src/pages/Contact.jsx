@@ -4,8 +4,9 @@ import { useAuth } from '../store/auth';
 import Contactimage from '../image/Contact.png'
 import {toast} from 'react-toastify';
 function Contact() {
-   const {Connect,isloggedIn} = useAuth();
+   const {Connect,isloggedIn,modified} = useAuth();
    const token = localStorage.getItem('token')
+   modified()
     const[contact,setContact] = useState({
         username:"",
         email:"",

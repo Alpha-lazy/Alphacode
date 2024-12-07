@@ -14,7 +14,8 @@ const Register = () =>{
           phone:"",
           password:""
        })
-    const {storeTokenInLS,Connect} = useAuth();
+    const {storeTokenInLS,Connect,modified} = useAuth();
+    modified()
        const handleInput =(e) =>{
          let name = e.target.name
          let value = e.target.value
