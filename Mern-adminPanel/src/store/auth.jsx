@@ -30,7 +30,7 @@ export const AuthProvider = ({children}) =>{
       admin = false
      }
      const modified = async() => {
-        const responce = await fetch('', {
+        const responce = await fetch('https://alphacode.onrender.com/api/auth/', {
                method:"GET",
                headers:{
                  Authorization:Admintoken,
