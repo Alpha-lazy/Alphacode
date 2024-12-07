@@ -59,7 +59,7 @@ export const AuthProvider = ({children}) =>{
      }
     
       
-     const isAdmin = admin
+     const isAdmin = !!admin
     
     // this is the function for logout page
     const LogoutUser = () =>{
