@@ -51,6 +51,7 @@ function Adminblock() {
               else{
                 toast.error("user is not unblocked")
               }
+              Blockedata()
         }
 
         useEffect(()=>{
