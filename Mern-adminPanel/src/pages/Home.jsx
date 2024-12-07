@@ -1,15 +1,15 @@
 import React, { useEffect }  from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import css from "./Home.module.css"
 import homeImage from "../image/home-img.png"
 import { useAuth } from "../store/auth";
-
+import { useNavigation } from "react-router-dom";
 
 const Home = () =>{
   const { isAdmin , Admintoken,modified} = useAuth()
-     
+  const navigate = useNavigate()
       modified()
-
+      navigate(0)
    
 
     return <>
