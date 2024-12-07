@@ -24,27 +24,27 @@ export const AuthProvider = ({children}) =>{
     };
 
     const modified = async() => {
-      const responce = await fetch('https://alphacode.onrender.com/api/auth/', {
-             method:"GET",
-             headers:{
-               Authorization:Admintoken,
-             }
+      // const responce = await fetch('https://alphacode.onrender.com/api/auth/', {
+      //        method:"GET",
+      //        headers:{
+      //          Authorization:Admintoken,
+      //        }
 
-      })
+      // })
       
-      if (responce.ok) {
-          let data = await responce.json()
-          // storeTokenInLS(data.token)
-          localStorage.setItem("token",data.token);
-          toast.success("You are admin")
+      // if (responce.ok) {
+      //     let data = await responce.json()
+      //     // storeTokenInLS(data.token)
+      //     localStorage.setItem("token",data.token);
+      //     toast.success("You are admin")
          
-      }
-      else{
-        let data = await responce.json()
-        localStorage.setItem('token',data.token);
+      // }
+      // else{
+      //   let data = await responce.json()
+      //   localStorage.setItem('token',data.token);
         
 
-      }
+      // }
       
       
   }
