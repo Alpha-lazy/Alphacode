@@ -34,8 +34,8 @@ export const AuthProvider = ({children}) =>{
       
       if (responce.ok) {
           let data = await responce.json()
-          // storeTokenInLS(data.token)
-          localStorage.setItem("token",data.token);
+          storeTokenInLS(data.token)
+          // localStorage.setItem("token",data.token);
           toast.success("You are admin")
          
       }
