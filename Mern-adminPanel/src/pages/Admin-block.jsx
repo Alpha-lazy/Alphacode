@@ -25,6 +25,7 @@ function Adminblock() {
             }
             else{
                 const responce = await data.json();
+                setBlockData(responce);
                 SetErrMessage(responce.message)
                 console.log(errMessage);
                 setLoader(false)
