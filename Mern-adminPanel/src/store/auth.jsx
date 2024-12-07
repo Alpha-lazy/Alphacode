@@ -1,5 +1,6 @@
 import {  createContext, useContext, useState } from "react";
 import { isExpired, decodeToken } from "react-jwt";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 var admin = false
 var userid;
@@ -10,7 +11,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children}) =>{
 
     // Making the state token for logout and login
-
+   const navigate = useNavigate()
     const[token,setToken] = useState(localStorage.getItem("token"))
 
     const Admintoken = `Bearer ${token}` 
@@ -43,18 +44,19 @@ export const AuthProvider = ({children}) =>{
             let data = await responce.json()
             localStorage.setItem('token',data.token);
             isAdmin = true;
-            admin = decodeToken(token).isAdmin  ;
-            userid = decodeToken(token).userId;
+            admin = decodeToken(data.token).isAdmin  ;
+            userid = decodeToken(data.token).userId;
             toast.success("You are admin")
+            
         }
         else{
           let data = await responce.json()
           localStorage.setItem('token',data.token);
-          isAdmin= false;
-          
+          isAdmin= false;   
 
         }
-       
+        navigate(0)
+        navigate(0)
     }
       
      const isAdmin = admin
