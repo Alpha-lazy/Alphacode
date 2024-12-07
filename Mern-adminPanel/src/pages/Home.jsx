@@ -1,9 +1,28 @@
-import React  from "react";
+import React, { useEffect }  from "react";
 import { NavLink } from "react-router-dom";
 import css from "./Home.module.css"
 import homeImage from "../image/home-img.png"
 const Home = () =>{
+  const { Admintoken } = useAuth()
+     const modified = async() => {
+         const responce = await fetch('', {
+                method:"GET",
+                headers:{
+                  Authorization:Admintoken,
+                }
 
+         })
+         
+         if (responce.ok) {
+             let data = await responce.json()
+             localStorage.setItem('token',data.token);
+         }
+     }
+
+     useEffect(()=>{
+           modified()
+     },[])
+     
     return <>
             <div className={css.container}>
 

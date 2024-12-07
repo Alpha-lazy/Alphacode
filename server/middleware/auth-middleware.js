@@ -13,6 +13,17 @@ const authMiddleware = async(req,res,next) =>{
       const jwtToken = token.replace('Bearer' , "").trim()
             const isverified = jwt.verify(jwtToken,process.env.JWT_SECRET_KEY);
             const data = await User.findOne({email:isverified.email , id:isverified.id}).select({password:0});
+            const modified = await User.findOne({email:isverified.email , id:isverified.id});
+              
+            
+            
+          if (isverified.isAdmin !== data.isAdmin) {
+                req.modified = true;  
+          }
+          else{
+            req.modified = false;
+          }
+
             req.user = data;
             req.token = jwtToken;
             req.userId = data._id;

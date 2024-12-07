@@ -4,11 +4,18 @@ const router = require("../router/auth-route");
 const bcrypt = require("bcryptjs");
 
 
-const home = (req, res) => {
+
+const home = async(req, res) => {
     try {
-        res.status(200).send("Welcome to home page");
+       
+        if (req.modified) {
+            let userdata = req.user
+            res.status(200).json({token: await userdata.generateToken()})
+            
+        }
+       
     } catch (error) {
-        res.status(400).send({ message: 'Page not found' });
+        res.status(500).json({message:'Internal Server Error'});
     }
 
 };
