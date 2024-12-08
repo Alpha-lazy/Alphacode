@@ -1,6 +1,6 @@
 import {  createContext, useContext, useState } from "react";
 import { isExpired, decodeToken } from "react-jwt";
-
+import CircularJSON from 'circular-json'
 
 import { toast } from "react-toastify";
 var admin = false
@@ -77,7 +77,7 @@ export const AuthProvider = ({children}) =>{
             headers:{
                 "Content-Type" :"application/json"
             },
-            body: JSON.stringify(user)
+            body: CircularJSON.stringify(user)
           })
     }
 
