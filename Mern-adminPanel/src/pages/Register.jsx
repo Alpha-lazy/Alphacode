@@ -34,8 +34,7 @@ const Register = () =>{
           let name = e.target.name
           let value = e.target.value
          setOtp({
-            ...otp,
-            [name]:value
+            name:value
          })
 
       
