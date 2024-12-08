@@ -106,6 +106,7 @@ const Register = () =>{
          const OtpForm = async(e) =>{
             e.preventDefault()
             try {
+               console.log(otp.otp);
                
            
             const otpresponce = await Connect("/api/auth/verify/otp",otp);

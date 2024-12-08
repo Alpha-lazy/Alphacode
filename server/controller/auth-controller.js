@@ -124,7 +124,7 @@ const verifyOtp = (req,res) =>{
     let userOtp = req.body.otp;
 console.log(userOtp===otp);
 
-    if (otp !== userOtp) {
+    if (userOtp != otp) {
         
         
        res.status(400).json({message:"Incorrect otp"})
