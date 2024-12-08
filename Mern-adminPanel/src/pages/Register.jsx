@@ -98,9 +98,10 @@ const Register = () =>{
          const OtpForm = async(e) =>{
             const otpresponce = await Connect("/api/auth/verify/otp",otp);
             if (otpresponce.ok) {
-               const responce = await Connect("/api/auth/register",user);
+               toast.success('suceesfull')
+            //    const responce = await Connect("/api/auth/register",user);
         
-              console.log(responce);
+            //   console.log(responce);
               
                // if (responce.ok) {
                //  const res_data = await responce.json()
