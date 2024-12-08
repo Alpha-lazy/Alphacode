@@ -15,7 +15,7 @@ const home = async(req, res) => {
         }
         else{
             let userdata = req.user
-            res.status(400).json({token: await userdata.generateToken()})  
+            res.status(400).json({message:"user is ot modified"})  
         }
        
     } catch (error) {
