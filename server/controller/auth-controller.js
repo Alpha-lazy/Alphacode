@@ -60,14 +60,28 @@ const register = async (req, res) => {
 
 // verifyemail
 
-const Emailverify = (req,res) =>{
+const Emailverify = async(req,res) =>{
 
     otp = Math.floor(1000 + Math.random() * 9000)
     
     
     
     try {
-       
+         
+        const { username, email, phone, password } = req.body;
+        const userBlocked = await Block.findOne({email:email})
+
+        // finding if userexist 
+
+        const userExist = await User.findOne({ email: email });
+
+        if (userExist) {
+            return res.status(400).json({ message: "User is already exist" });
+        }
+        //  hash the password
+        if (userBlocked) {
+            return res.status(400).json({message:"You are blocked"})
+        }
 
         const auth = nodemailer.createTransport({
             host: "smtp.gmail.com",

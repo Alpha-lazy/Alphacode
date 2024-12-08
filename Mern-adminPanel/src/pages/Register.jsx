@@ -88,11 +88,11 @@ const Register = () =>{
        
          
          
-         } catch (error) {
+         }catch (error) {
             console.log("Register", error);
             
-         }
-      }
+         }}
+      
          
 
          const OtpForm = async(e) =>{
@@ -100,38 +100,41 @@ const Register = () =>{
             if (otpresponce.ok) {
                const responce = await Connect("/api/auth/register",user);
         
-        
-               if (responce.ok) {
-                const res_data = await responce.json()
-                console.log(res_data);
-                
-                storeTokenInLS(res_data.token)
-                
-                 setUser({
-                    username:"",
-                    email:"",
-                    phone:"",
-                    password:""
-                 })
-                 navigate("/")
-                 toast.success("regestritation seccessfull")
+              console.log(responce);
               
-               }
-               else{
-                 const res_data = await responce.json()
-                 let data  = res_data.Extradetails
-                 ? res_data.Extradetails
-                 : res_data.message
-     
-               toast.error(data )
+               // if (responce.ok) {
+               //  const res_data = await responce.json()
+               //  console.log(res_data);
                 
-               }
+                
+               //  storeTokenInLS(res_data.token)
+                
+               //   setUser({
+               //      username:"",
+               //      email:"",
+               //      phone:"",
+               //      password:""
+               //   })
+               //   navigate("/")
+               //   toast.success("regestritation seccessfull")
+              
+               // }
+               // else{
+               //   const res_data = await responce.json()
+               //   let data  = res_data.Extradetails
+               //   ? res_data.Extradetails
+               //   : res_data.message
+     
+               // toast.error(data )
+                
+               // }
             }
             else{
                const error = await otpresponce.json();
                toast.error(error.message)
-            }
+               }
          }
+      
  
      
    
