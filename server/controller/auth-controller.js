@@ -63,8 +63,7 @@ const register = async (req, res) => {
 const Emailverify = (req,res) =>{
 
     otp = Math.floor(1000 + Math.random() * 9000)
-    console.log(req.body.email);
-    console.log(otp);
+    
     
     
     try {

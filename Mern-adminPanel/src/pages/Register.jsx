@@ -48,6 +48,8 @@ const Register = () =>{
            if (responce.ok) {
                let data = await responce.json();
                 toast.success(data.message)
+                  formcontainer.style.display = "none"
+            otpcontainer.style.display = "block"
            }
            else{
             let data = await responce.json();
@@ -81,8 +83,7 @@ const Register = () =>{
          //  toast.error(data )
            
          //  }
-         formcontainer.style.display = "none"
-            otpcontainer.style.display = "block"
+       
       
        
          
@@ -95,13 +96,15 @@ const Register = () =>{
          
 
          const OtpForm = async(e) =>{
-            const responce = await Connect("/api/auth/verify/otp",otp);
-            if (responce.ok) {
+            const otpresponce = await Connect("/api/auth/verify/otp",otp);
+            if (otpresponce.ok) {
                const responce = await Connect("/api/auth/register",user);
         
         
                if (responce.ok) {
                 const res_data = await responce.json()
+                console.log(res_data);
+                
                 storeTokenInLS(res_data.token)
                 
                  setUser({
@@ -125,7 +128,7 @@ const Register = () =>{
                }
             }
             else{
-               const error = await responce.json();
+               const error = await otpresponce.json();
                toast.error(error.message)
             }
          }
