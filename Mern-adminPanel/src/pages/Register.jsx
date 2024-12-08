@@ -129,7 +129,7 @@ const Register = () =>{
                     password:""
                  })
                  navigate("/")
-                 toast.success("regestritation seccessfull")
+               //   toast.success("regestritation seccessfull")
               
                }
                else{
@@ -145,6 +145,7 @@ const Register = () =>{
             else{
                const error = await otpresponce.json();
                toast.error(error.message)
+               
                }
             } catch (error) {
                toast.error("Internal server error")
