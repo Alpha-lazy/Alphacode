@@ -36,8 +36,11 @@ const Register = () =>{
        const handleOtp =(e) =>{
           let name = e.target.name
           let value = e.target.value
+          console.log(value);
+          
          setOtp({
-            [name]:value
+
+            [name]:value,
          })
 
       
