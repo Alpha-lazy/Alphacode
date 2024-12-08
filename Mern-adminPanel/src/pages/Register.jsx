@@ -14,7 +14,7 @@ const Register = () =>{
           phone:"",
           password:""
        })
-       const [otp,setOtp] = useState({
+       const [userOtp,setUserOtp] = useState({
          otp:""
        })
     const {storeTokenInLS,Connect,modified,isloggedIn} = useAuth();
@@ -38,8 +38,8 @@ const Register = () =>{
           let value = e.target.value
           console.log(value);
           
-         setOtp({
-
+          setUserOtp({
+            ...otp,
             [name]:value,
          })
 
@@ -109,7 +109,7 @@ const Register = () =>{
          const OtpForm = async(e) =>{
             e.preventDefault()
             try {
-               console.log(otp.otp);
+               console.log(userOtp.otp);
                
            
             const otpresponce = await Connect("/api/auth/verify/otp",otp);
@@ -199,7 +199,7 @@ const Register = () =>{
                       
                        
                         
-                         <input type="text" name="username" maxLength="4" value={otp.otp} onChange={handleOtp} required id="otp"/>
+                         <input type="text" name="username" maxLength="4" value={userOtp.otp} onChange={handleOtp} required id="otp"/>
                          <label htmlFor="name">Enter otp</label>
                        
 
