@@ -14,7 +14,7 @@ const Register = () =>{
           phone:"",
           password:""
        })
-       const [userOtp,setUserOtp] = useState()
+       const [userOtp,setUserOtp] = useState("")
     const {storeTokenInLS,Connect,modified,isloggedIn} = useAuth();
     if (isloggedIn) {
       modified()
