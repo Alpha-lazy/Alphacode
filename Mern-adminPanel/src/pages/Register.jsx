@@ -106,10 +106,13 @@ const Register = () =>{
                 headers:{
                   "Content-Type" :"application/json"
                },
-               body:{
-                  otp:`${userOtp}`
+               body:JSON.stringify({
+                  otp:userOtp
+                  
+              
+                }),
          
-               }
+              
 
                
             });
