@@ -117,7 +117,7 @@ const Register = () =>{
                
             });
             if (otpresponce.ok) {
-               toast.success('suceesfull')
+              
                const responce = await Connect("/api/auth/register",user);
         
               console.log(responce);
