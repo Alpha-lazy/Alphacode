@@ -4,8 +4,11 @@ import {toast} from 'react-toastify';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 function AdminUser() {
-   const { Admintoken ,userid,modified} = useAuth()
-   modified()
+   const { Admintoken ,userid,modified,isloggedIn} = useAuth()
+   if (isloggedIn) {
+    
+     modified()
+   }
   const navigate = useNavigate()
    const [user, Setuser] = useState([]);
    const [loader, setLoader] = useState(true);

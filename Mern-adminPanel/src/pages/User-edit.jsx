@@ -6,8 +6,12 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import updateimage from '../image/Update-pana.png'
 
 function Useredit() {
-  const {Admintoken,userid,modified} = useAuth()
-  modified()
+  const {Admintoken,userid,modified,isloggedIn} = useAuth()
+
+  if (isloggedIn) {
+    modified()
+    
+  }
 const {state} = useLocation()
 const navigate = useNavigate()
 const { id } = state;

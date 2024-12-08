@@ -16,7 +16,11 @@ const Login = () => {
     })
     
     const {storeTokenInLS,Connect,isloggedIn,modified} = useAuth();
-    modified()
+
+    if (isloggedIn) {
+        
+        modified()
+    }
     const navigate = useNavigate()
     const handleInput = (e) =>{
         let name = e.target.name;

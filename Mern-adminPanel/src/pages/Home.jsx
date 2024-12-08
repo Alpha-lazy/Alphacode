@@ -6,10 +6,13 @@ import { useAuth } from "../store/auth";
 import { useNavigation } from "react-router-dom";
 
 const Home = () =>{
-  const { isAdmin , Admintoken,modified} = useAuth()
-  // const navigate = useNavigate()
-      modified()
-      // navigate(0)
+  const { isAdmin , Admintoken,modified,isloggedIn} = useAuth()
+  
+  if (isloggedIn) {
+    modified()
+    
+  }
+      
    
 
     return <>

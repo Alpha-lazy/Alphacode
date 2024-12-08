@@ -17,8 +17,11 @@ const Register = () =>{
        const [otp,setOtp] = useState({
          otp:""
        })
-    const {storeTokenInLS,Connect,modified} = useAuth();
-    modified()
+    const {storeTokenInLS,Connect,modified,isloggedIn} = useAuth();
+    if (isloggedIn) {
+      modified()
+    }
+    
        const handleInput =(e) =>{
          let name = e.target.name
          let value = e.target.value

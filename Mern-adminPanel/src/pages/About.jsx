@@ -11,7 +11,9 @@ const About = () => {
     })
 
         const {isloggedIn,modified} = useAuth()
-        modified()
+        if (condition) {
+            modified()
+        }
     useEffect(()=>{
   
         const fetchdata = async() =>{
