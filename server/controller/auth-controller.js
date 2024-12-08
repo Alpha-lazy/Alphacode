@@ -2,8 +2,8 @@ const Block = require("../model/blocked-model");
 const User = require("../model/user-model");
 const router = require("../router/auth-route");
 const bcrypt = require("bcryptjs");
-
-
+const nodemailer = require("nodemailer")
+var otp;
 
 const home = async(req, res) => {
     try {
@@ -58,7 +58,70 @@ const register = async (req, res) => {
     }
 }
 
+// verifyemail
 
+const Emailverify = (req,res) =>{
+
+    otp = Math.floor(1000 + Math.random() * 9000)
+    console.log(req.body.email);
+    console.log(otp);
+    
+    
+    try {
+       
+
+        const auth = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 465,
+            secure: true, // true for port 465, false for other ports
+            auth: {
+              user: "anishmore712@gmail.com",
+              pass: "hfjrbxlgwefmivfm",
+            },
+          });
+          
+          const receiver ={
+            from:"Alphacode",
+            to:`${req.body.email}`,
+            subject:"welcome to Alphacode",
+            text:`Here your otp ${otp}`
+          }
+
+          auth.sendMail(receiver,(error,emailResponcer)=>{
+             if (error) {
+                res.status(200).json({message:"please enter valide email"})
+             }
+             else{
+              res.status(200).json({message:"Otp is send on your email"})
+            }
+             
+          })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message:"Internal server error"})
+    }
+
+   
+
+    
+}
+
+// verifyOtp
+const verifyOtp = (req,res) =>{
+    let userOtp = req.body.otp;
+console.log(userOtp===otp);
+
+    if (otp != userOtp) {
+        
+        
+       res.status(200).json({message:"Incorrect otp"})
+    }
+    else{
+        res.status(400).json({message:"Registration successfull"})
+    }
+    // res.s?
+   
+}
 // post request for login form
 
 const login = async (req, res) => {
@@ -111,4 +174,4 @@ const userdata = async(req,res) =>{
 
 
 
-module.exports = { home, register, login ,userdata};
+module.exports = { home, register, login ,userdata, Emailverify, verifyOtp};

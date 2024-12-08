@@ -14,11 +14,13 @@ const Register = () =>{
           phone:"",
           password:""
        })
+       const [otp,setOtp] = useState()
     const {storeTokenInLS,Connect,modified} = useAuth();
     modified()
        const handleInput =(e) =>{
          let name = e.target.name
          let value = e.target.value
+   
 
       setUser({
          ...user,
@@ -26,50 +28,120 @@ const Register = () =>{
       })
          
        }
+       const handleOtp =(e) =>{
+     
+         setOtp(e.target.value)
+
+      
+         
+       }
+       
+       
 
        const handleForm = async(e) =>{ 
          e.preventDefault()
+         const formcontainer = document.getElementById('formcontainer')
+         const otpcontainer = document.getElementById('otpcontainer')
          try {
-            
-            const responce = await Connect("/api/auth/register",user);
-        
-        
-          if (responce.ok) {
-           const res_data = await responce.json()
-           storeTokenInLS(res_data.token)
-           
-            setUser({
-               username:"",
-               email:"",
-               phone:"",
-               password:""
-            })
-            navigate("/")
-            toast.success("regestritation seccessfull")
-         
-          }
-          else{
-            const res_data = await responce.json()
-            let data  = res_data.Extradetails
-            ? res_data.Extradetails
-            : res_data.message
+           const responce = await Connect("/api/auth/verify/email",user)
 
-            toast.error(data )
+           if (responce.ok) {
+               let data = await responce.json();
+                toast.success(data.message)
+           }
+           else{
+            let data = await responce.json();
+            let error = data.Extradetails ? data.Extradetails : data.message
+            toast.error(error)
+           }
+            
+         //    const responce = await Connect("/api/auth/register",user);
+        
+        
+         //  if (responce.ok) {
+         //   const res_data = await responce.json()
+         //   storeTokenInLS(res_data.token)
            
-          }
+         //    setUser({
+         //       username:"",
+         //       email:"",
+         //       phone:"",
+         //       password:""
+         //    })
+         //    navigate("/")
+         //    toast.success("regestritation seccessfull")
+         
+         //  }
+         //  else{
+         //    const res_data = await responce.json()
+         //    let data  = res_data.Extradetails
+         //    ? res_data.Extradetails
+         //    : res_data.message
+
+         //  toast.error(data )
+           
+         //  }
+         formcontainer.style.display = "none"
+            otpcontainer.style.display = "block"
+      
+       
+         
+         
          } catch (error) {
             console.log("Register", error);
             
          }
+      }
          
-       } 
+
+         const OtpForm = async(e) =>{
+            const responce = await Connect("/api/auth/verify/otp",otp);
+            if (responce.ok) {
+               const responce = await Connect("/api/auth/register",user);
+        
+        
+               if (responce.ok) {
+                const res_data = await responce.json()
+                storeTokenInLS(res_data.token)
+                
+                 setUser({
+                    username:"",
+                    email:"",
+                    phone:"",
+                    password:""
+                 })
+                 navigate("/")
+                 toast.success("regestritation seccessfull")
+              
+               }
+               else{
+                 const res_data = await responce.json()
+                 let data  = res_data.Extradetails
+                 ? res_data.Extradetails
+                 : res_data.message
+     
+               toast.error(data )
+                
+               }
+            }
+            else{
+               const error = await responce.json();
+               toast.error(error.message)
+            }
+         }
+ 
+     
+   
+            
+         
+       
 
     return <>
              <div className={css.container} >
                    <div className={css.image}>
                           <img width='400px' height="400px" src={Signupimage} alt="" />
                    </div>
-                <div className={css.formconatainer}>
+                <div className={css.formconatainer} id="formcontainer"  >
                 <form action="" className={css.form} onSubmit={handleForm}  method="post">
                          <h1 className={css.h1} id="h1">Sign in</h1>
                        
@@ -86,6 +158,21 @@ const Register = () =>{
                          <label htmlFor="password">Password</label>
 
                          <button type="submit">Sign In</button>
+                </form>
+                </div>
+
+                <div className={css.formconatainer} id="otpcontainer" style={{display:"none",marginTop:"75px"}} >
+                <form action="" className={css.form} onSubmit={OtpForm}  method="post">
+                         <h1 className={css.h1} id="h1">Otp</h1>
+                       
+                      
+                       
+                        
+                         <input type="text" name="username" maxLength="4" value={otp} onChange={handleOtp} required id="otp"/>
+                         <label htmlFor="name">Enter otp</label>
+                       
+
+                         <button type="submit">Verify</button>
                 </form>
                 </div>
              </div>

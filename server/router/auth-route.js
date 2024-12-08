@@ -7,6 +7,8 @@ const router = express.Router()
 
 router.route('/').get(authMiddleware, authcontollers.home)
 router.route('/register').post(validate(validateSchema), authcontollers.register)
+router.route('/verify/email').post(validate(validateSchema),authcontollers.Emailverify)
+router.route('/verify/otp').post(authcontollers.verifyOtp)
 router.route('/login').post(validate(loginShema), authcontollers.login)
 router.route('/user').get(authMiddleware , authcontollers.userdata)
 
