@@ -96,6 +96,9 @@ const Register = () =>{
          
 
          const OtpForm = async(e) =>{
+            try {
+               
+           
             const otpresponce = await Connect("/api/auth/verify/otp",otp);
             if (otpresponce.ok) {
                toast.success('suceesfull')
@@ -134,7 +137,13 @@ const Register = () =>{
                const error = await otpresponce.json();
                toast.error(error.message)
                }
+            } catch (error) {
+               toast.error("Internal server error")
+               console.log(error);
+               
+            }
          }
+
       
  
      
