@@ -107,9 +107,9 @@ const Register = () =>{
                   "Content-Type" :"application/json"
                },
                body:{
-                  otp:userOtp
+                  otp:`${userOtp}`
+         
                }
-
 
                
             });
