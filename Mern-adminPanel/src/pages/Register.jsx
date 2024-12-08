@@ -14,7 +14,9 @@ const Register = () =>{
           phone:"",
           password:""
        })
-       const [otp,setOtp] = useState()
+       const [otp,setOtp] = useState({
+         otp:""
+       })
     const {storeTokenInLS,Connect,modified} = useAuth();
     modified()
        const handleInput =(e) =>{
@@ -29,8 +31,12 @@ const Register = () =>{
          
        }
        const handleOtp =(e) =>{
-     
-         setOtp(e.target.value)
+          let name = e.target.name
+          let value = e.target.value
+         setOtp({
+            ...otp,
+            [name]:value
+         })
 
       
          
@@ -186,7 +192,7 @@ const Register = () =>{
                       
                        
                         
-                         <input type="text" name="username" maxLength="4" value={otp} onChange={handleOtp} required id="otp"/>
+                         <input type="text" name="username" maxLength="4" value={otp.otp} onChange={handleOtp} required id="otp"/>
                          <label htmlFor="name">Enter otp</label>
                        
 
