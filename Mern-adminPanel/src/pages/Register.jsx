@@ -14,9 +14,7 @@ const Register = () =>{
           phone:"",
           password:""
        })
-       const [userOtp,setUserOtp] = useState({
-         otp:""
-       })
+       const [userOtp,setUserOtp] = useState()
     const {storeTokenInLS,Connect,modified,isloggedIn} = useAuth();
     if (isloggedIn) {
       modified()
@@ -34,17 +32,8 @@ const Register = () =>{
          
        }
        const handleOtp =(e) =>{
-          let name = e.target.name
-          let value = e.target.value
-       
-          
-          setUserOtp({
-         
-            name:e.value,
-         })
-
-      
-         
+         let value = e.target.value    
+          setUserOtp(value)  
        }
        
        
@@ -112,7 +101,18 @@ const Register = () =>{
                console.log(userOtp.otp);
                
            
-            const otpresponce = await Connect("/api/auth/verify/otp",otp);
+            const otpresponce = await fetch("/api/auth/verify/otp",{
+                method:'POST',
+                headers:{
+                  "Content-Type" :"application/json"
+               },
+               body:{
+                  otp:userOtp
+               }
+
+
+               
+            });
             if (otpresponce.ok) {
                toast.success('suceesfull')
                const responce = await Connect("/api/auth/register",user);
