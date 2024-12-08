@@ -111,36 +111,36 @@ const Register = () =>{
             const otpresponce = await Connect("/api/auth/verify/otp",otp);
             if (otpresponce.ok) {
                toast.success('suceesfull')
-            //    const responce = await Connect("/api/auth/register",user);
+               const responce = await Connect("/api/auth/register",user);
         
-            //   console.log(responce);
+              console.log(responce);
               
-               // if (responce.ok) {
-               //  const res_data = await responce.json()
-               //  console.log(res_data);
+               if (responce.ok) {
+                const res_data = await responce.json()
+                console.log(res_data);
                 
                 
-               //  storeTokenInLS(res_data.token)
+                storeTokenInLS(res_data.token)
                 
-               //   setUser({
-               //      username:"",
-               //      email:"",
-               //      phone:"",
-               //      password:""
-               //   })
-               //   navigate("/")
-               //   toast.success("regestritation seccessfull")
+                 setUser({
+                    username:"",
+                    email:"",
+                    phone:"",
+                    password:""
+                 })
+                 navigate("/")
+                 toast.success("regestritation seccessfull")
               
-               // }
-               // else{
-               //   const res_data = await responce.json()
-               //   let data  = res_data.Extradetails
-               //   ? res_data.Extradetails
-               //   : res_data.message
+               }
+               else{
+                 const res_data = await responce.json()
+                 let data  = res_data.Extradetails
+                 ? res_data.Extradetails
+                 : res_data.message
      
-               // toast.error(data )
+               toast.error(data )
                 
-               // }
+               }
             }
             else{
                const error = await otpresponce.json();
