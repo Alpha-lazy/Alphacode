@@ -77,7 +77,7 @@ export const AuthProvider = ({children}) =>{
             headers:{
                 "Content-Type" :"application/json"
             },
-            body: CircularJSON.stringify(user)
+            body: JSON.stringify(user)
           })
     }
 
