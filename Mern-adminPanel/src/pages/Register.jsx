@@ -126,6 +126,7 @@ const Register = () =>{
                 const res_data = await responce.json()
                 
                 
+                console.log(res_data.token);
                 
                 storeTokenInLS(res_data.token)
                 
