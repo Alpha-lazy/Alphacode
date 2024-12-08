@@ -98,7 +98,7 @@ const Register = () =>{
          const OtpForm = async(e) =>{
             e.preventDefault()
             try {
-               console.log(userOtp.otp);
+               console.log(userOtp);
                
            
             const otpresponce = await fetch("https://alphacode.onrender.com/api/auth/verify/otp",{
