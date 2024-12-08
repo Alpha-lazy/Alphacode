@@ -36,11 +36,11 @@ const Register = () =>{
        const handleOtp =(e) =>{
           let name = e.target.name
           let value = e.target.value
-          console.log(value);
+       
           
           setUserOtp({
          
-            otp:e.target.value,
+            name:e.value,
          })
 
       
@@ -142,7 +142,7 @@ const Register = () =>{
                  ? res_data.Extradetails
                  : res_data.message
      
-               toast.error(data )
+               toast.error(data)
                 
                }
             }
