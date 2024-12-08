@@ -39,8 +39,8 @@ const Register = () =>{
           console.log(value);
           
           setUserOtp({
-            ...otp,
-            [name]:value,
+         
+            otp:e.target.value,
          })
 
       
