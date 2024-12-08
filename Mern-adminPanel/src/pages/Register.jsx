@@ -98,7 +98,7 @@ const Register = () =>{
          const OtpForm = async(e) =>{
             e.preventDefault()
             try {
-               console.log(userOtp);
+               
                
            
             const otpresponce = await fetch("https://alphacode.onrender.com/api/auth/verify/otp",{
@@ -120,11 +120,11 @@ const Register = () =>{
               
                const responce = await Connect("/api/auth/register",user);
         
-              console.log(responce);
+              
               
                if (responce.ok) {
                 const res_data = await responce.json()
-                console.log(res_data);
+                
                 
                 
                 storeTokenInLS(res_data.token)
@@ -136,7 +136,7 @@ const Register = () =>{
                     password:""
                  })
                  navigate("/")
-               //   toast.success("regestritation seccessfull")
+                 toast.success("regestritation seccessfull")
               
                }
                else{
