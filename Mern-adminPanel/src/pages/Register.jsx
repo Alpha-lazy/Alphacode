@@ -101,7 +101,7 @@ const Register = () =>{
                console.log(userOtp.otp);
                
            
-            const otpresponce = await fetch("/api/auth/verify/otp",{
+            const otpresponce = await fetch("https://alphacode.onrender.com/api/auth/verify/otp",{
                 method:'POST',
                 headers:{
                   "Content-Type" :"application/json"
