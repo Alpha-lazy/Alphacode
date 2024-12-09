@@ -68,9 +68,7 @@ export const AuthProvider = ({children}) =>{
     if (token === "undefined") {
       admin = false
       isloggedIn = false
-      setToken("")  
-  
-       localStorage.removeItem('token');
+      localStorage.removeItem('token');
    } 
 
  
