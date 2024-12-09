@@ -105,9 +105,9 @@ const Emailverify = async (req, res) => {
             to: `${req.body.email}`,
             subject: "Verify Your Email Address",
             text: `
-                Hi ${username},
+                 Hi ${username},
                  
-                 Thank you for signing up with [Your Company Name]! To complete your registration, please verify your email using the One-Time Password (OTP) below:
+                 Thank you for signing up with Alphacode! To complete your registration, please verify your email using the One-Time Password (OTP) below:
                  
                  Your OTP: ${otp}
                  
