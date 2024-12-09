@@ -196,7 +196,7 @@ const Register = () =>{
                 <div className={css.formconatainer} id="otpcontainer" style={{display:"none",marginTop:"75px"}} >
 
                 <form action="" className={css.form} onSubmit={OtpForm}  method="post">
-                         <h1 className={css.h1} id="h1">Otp</h1>
+                         <h1 className={css.h1} id="h1">Email Verification</h1>
                        
                       
                        
