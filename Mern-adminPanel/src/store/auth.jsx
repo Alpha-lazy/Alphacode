@@ -106,7 +106,7 @@ export const AuthProvider = ({children}) =>{
         admin = false
         isloggedIn = false
         setToken("")  
-        navigate("/register")
+    
         return localStorage.removeItem('token');
      } 
           return  await fetch(`https://alphacode.onrender.com${path}` , {
