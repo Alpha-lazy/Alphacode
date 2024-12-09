@@ -13,15 +13,13 @@ export const AuthProvider = ({children}) =>{
 
     // Making the state token for logout and login
    
-    const[token,setToken] = useState(localStorage.getItem("token"))
+      const[token,setToken] = useState(localStorage.getItem('token') === undefined? localStorage.removeItem('token'):localStorage.getItem('token'))
     
     const Admintoken = `Bearer ${token}` 
     
     const storeTokenInLS = (serverToken) =>{
         setToken(serverToken)
-        if (serverToken === undefined) {
-          return localStorage.removeItem('token')
-     }
+     
         return localStorage.setItem("token",serverToken);
 
     };
