@@ -9,7 +9,7 @@ const About = () => {
     const[user,setUser] = useState({
         username:""
     })
-
+  
         const {isloggedIn,modified} = useAuth()
        
     useEffect(()=>{

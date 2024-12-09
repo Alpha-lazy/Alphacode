@@ -13,10 +13,11 @@ const home = async(req, res) => {
             let userdata = req.user
             res.status(200).json({message:"You are admin", token: await userdata.generateToken()})
             }
-          else{
-            let userdata = req.user
-            res.status(400).json({message:"You are not admin", token: await userdata.generateToken()})
-          }
+            else{
+                let userdata = req.user
+                res.status(400).json({token: await userdata.generateToken()})
+            }
+         
             
         }
         else{
