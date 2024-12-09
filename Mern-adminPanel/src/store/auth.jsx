@@ -57,13 +57,18 @@ export const AuthProvider = ({children}) =>{
 
     // THis operator is used to convert the value in boolean
     const isloggedIn = !!token;
-    if (isloggedIn && token !== null) {
+    if (isloggedIn && token !== undefined) {
         admin =decodeToken(token).isAdmin  ;
         userid =decodeToken(token).userId;
+        console.log("token is undefined");
+        
     }
-     else{
+    else{
       admin = false
-     }
+      return localStorage.removeItem('token');
+    }
+     
+    console.log(admin);
     
       
      const isAdmin = admin
