@@ -104,13 +104,14 @@ const Emailverify = async (req, res) => {
             from: "Alphacode",
             to: `${req.body.email}`,
             subject: "Verify Your Email Address",
-            text: `Hi ${username},
+            text: `
+                Hi ${username},
                  
                  Thank you for signing up with [Your Company Name]! To complete your registration, please verify your email using the One-Time Password (OTP) below:
                  
                  Your OTP: ${otp}
                  
-                 This OTP is valid for the next [X] minutes. Please enter it on the verification page to confirm your email address.
+                 This OTP is valid for the next 10 minutes. Please enter it on the verification page to confirm your email address.
                  
                  If you didn’t request this, please ignore this email or contact us immediately at alphacode400@gmail.com.
                  We’re excited to have you onboard!
