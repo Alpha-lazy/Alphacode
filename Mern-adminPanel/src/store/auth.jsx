@@ -18,7 +18,7 @@ export const AuthProvider = ({children}) =>{
     if (token === "undefined") {
       admin = false
       localStorage.removeItem('token');
-      navigate("/register")
+ 
    
       
    }   
@@ -35,7 +35,7 @@ export const AuthProvider = ({children}) =>{
       if (token === "undefined") {
         admin = false
         setToken("")  
-        navigate("/register")
+     
          localStorage.removeItem('token');
      } 
       
@@ -102,13 +102,7 @@ export const AuthProvider = ({children}) =>{
     // making function for the fetching the data from backend
 
     const Connect = async(path,user) => {
-      if (token === "undefined") {
-        admin = false
-        isloggedIn = false
-        setToken("")  
-    
-        return localStorage.removeItem('token');
-     } 
+  
           return  await fetch(`https://alphacode.onrender.com${path}` , {
             method:"POST",
             headers:{
