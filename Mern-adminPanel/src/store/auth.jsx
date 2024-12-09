@@ -13,7 +13,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children}) =>{
 
     // Making the state token for logout and login
-
+   const navigate = useNavigate()
     const[token,setToken] = useState(localStorage.getItem('token'))
     if (token === "undefined") {
       admin = false
@@ -33,7 +33,10 @@ export const AuthProvider = ({children}) =>{
     const modified = async() => {
       if (token === "undefined") {
         admin = false
-        localStorage.removeItem('token');   
+        isloggedIn = false
+        setToken("")  
+        navigate("/register")
+        return localStorage.removeItem('token');
      } 
       
       const responce = await fetch('https://alphacode.onrender.com/api/auth/', {
@@ -67,18 +70,24 @@ export const AuthProvider = ({children}) =>{
     // THis operator is used to convert the value in boolean
     const isloggedIn = !!token;
 
- 
+    if (token === "undefined") {
+      admin = false
+      isloggedIn = false
+      setToken("")  
+      navigate("/register")
+      return localStorage.removeItem('token');
+   } 
 
  
     if (isloggedIn) {
         admin =decodeToken(token).isAdmin  ;
         userid =decodeToken(token).userId;
-        console.log("token is undefined");
+      
         
     }
   
      
-    console.log(admin);
+
     
       
      const isAdmin = admin
@@ -93,6 +102,13 @@ export const AuthProvider = ({children}) =>{
     // making function for the fetching the data from backend
 
     const Connect = async(path,user) => {
+      if (token === "undefined") {
+        admin = false
+        isloggedIn = false
+        setToken("")  
+        navigate("/register")
+        return localStorage.removeItem('token');
+     } 
           return  await fetch(`https://alphacode.onrender.com${path}` , {
             method:"POST",
             headers:{
