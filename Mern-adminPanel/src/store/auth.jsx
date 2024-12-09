@@ -13,7 +13,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children}) =>{
 
     // Making the state token for logout and login
-  const navigate = useNavigate()
+
     const[token,setToken] = useState(localStorage.getItem('token'))
           
     const Admintoken = `Bearer ${token}` 
@@ -64,7 +64,7 @@ export const AuthProvider = ({children}) =>{
    
       
    }
-   else{
+ 
 
  
     if (isloggedIn) {
@@ -73,7 +73,7 @@ export const AuthProvider = ({children}) =>{
         console.log("token is undefined");
         
     }
-  }
+  
      
     console.log(admin);
     
