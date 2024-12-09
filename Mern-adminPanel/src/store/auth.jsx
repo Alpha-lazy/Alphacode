@@ -3,7 +3,7 @@ import { isExpired, decodeToken } from "react-jwt";
 import CircularJSON from 'circular-json'
 
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+
 var admin = false
 var userid;
 
@@ -13,7 +13,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children}) =>{
 
     // Making the state token for logout and login
-   const navigate = useNavigate()
+
     const[token,setToken] = useState(localStorage.getItem('token'))
     if (token === "undefined") {
       admin = false
@@ -32,12 +32,7 @@ export const AuthProvider = ({children}) =>{
     };
 
     const modified = async() => {
-      if (token === "undefined") {
-        admin = false
-        setToken("")  
-     
-         localStorage.removeItem('token');
-     } 
+   
       
       const responce = await fetch('https://alphacode.onrender.com/api/auth/', {
              method:"GET",
