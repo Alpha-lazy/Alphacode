@@ -18,6 +18,7 @@ export const AuthProvider = ({children}) =>{
     if (token === "undefined") {
       admin = false
       localStorage.removeItem('token');
+      navigate("/register")
    
       
    }   
@@ -33,10 +34,9 @@ export const AuthProvider = ({children}) =>{
     const modified = async() => {
       if (token === "undefined") {
         admin = false
-        isloggedIn = false
         setToken("")  
         navigate("/register")
-        return localStorage.removeItem('token');
+         localStorage.removeItem('token');
      } 
       
       const responce = await fetch('https://alphacode.onrender.com/api/auth/', {
@@ -74,8 +74,8 @@ export const AuthProvider = ({children}) =>{
       admin = false
       isloggedIn = false
       setToken("")  
-      navigate("/register")
-      return localStorage.removeItem('token');
+  
+       localStorage.removeItem('token');
    } 
 
  
