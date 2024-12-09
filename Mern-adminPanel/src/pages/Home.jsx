@@ -11,6 +11,8 @@ const Home = () =>{
     console.log("is null");
     
 }
+console.log('hi');
+
   useEffect(()=>{
     if (isloggedIn) {
       modified()
