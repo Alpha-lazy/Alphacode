@@ -61,17 +61,19 @@ export const AuthProvider = ({children}) =>{
     if (token === "undefined") {
       admin = false
       localStorage.removeItem('token');
-      navigate(0)
-      navigate(0)
+   
       
    }
+   else{
+
+ 
     if (isloggedIn) {
         admin =decodeToken(token).isAdmin  ;
         userid =decodeToken(token).userId;
         console.log("token is undefined");
         
     }
-
+  }
      
     console.log(admin);
     
