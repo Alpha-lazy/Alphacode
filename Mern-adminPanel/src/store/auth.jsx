@@ -12,8 +12,8 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children}) =>{
 
     // Making the state token for logout and login
-   
-      const[token,setToken] = useState(localStorage.getItem('token') === undefined? localStorage.removeItem('token'):localStorage.getItem('token'))
+
+    const[token,setToken] = useState(localStorage.getItem('token'))
           
     const Admintoken = `Bearer ${token}` 
   
@@ -57,8 +57,8 @@ export const AuthProvider = ({children}) =>{
     // THis operator is used to convert the value in boolean
     const isloggedIn = !!token;
     if (isloggedIn) {
-        admin = decodeToken(token).isAdmin  ;
-        userid = decodeToken(token).userId;
+        admin =token===undefined?localStorage.removeItem('token'):decodeToken(token).isAdmin  ;
+        userid =token===undefined?localStorage.removeItem('token'):decodeToken(token).userId;
     }
      else{
       admin = false
