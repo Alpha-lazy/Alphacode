@@ -15,7 +15,12 @@ export const AuthProvider = ({children}) =>{
     // Making the state token for logout and login
 
     const[token,setToken] = useState(localStorage.getItem('token'))
-          
+    if (token === "undefined") {
+      admin = false
+      localStorage.removeItem('token');
+   
+      
+   }   
     const Admintoken = `Bearer ${token}` 
   
     const storeTokenInLS = (serverToken) =>{
@@ -26,8 +31,11 @@ export const AuthProvider = ({children}) =>{
     };
 
     const modified = async() => {
-    
-      localStorage.getItem('token') === null? localStorage.removeItem('token'):localStorage.getItem('token')
+      if (token === "undefined") {
+        admin = false
+        localStorage.removeItem('token');   
+     } 
+      
       const responce = await fetch('https://alphacode.onrender.com/api/auth/', {
              method:"GET",
              headers:{
@@ -58,12 +66,7 @@ export const AuthProvider = ({children}) =>{
 
     // THis operator is used to convert the value in boolean
     const isloggedIn = !!token;
-    if (token === "undefined") {
-      admin = false
-      localStorage.removeItem('token');
-   
-      
-   }
+
  
 
  
