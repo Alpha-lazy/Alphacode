@@ -12,30 +12,30 @@ const About = () => {
 
         const {isloggedIn,modified} = useAuth()
        
-//     useEffect(()=>{
-//         if (condition) {
-//             modified()
-//         }
-//         const fetchdata = async() =>{
+    useEffect(()=>{
+        if (isloggedIn) {
+            modified()
+        }
+        const fetchdata = async() =>{
 
         
-//     if (isloggedIn) {
+    if (isloggedIn) {
         
-//    const token = localStorage.getItem('token');
-//     const userinfo = await fetch('https://alphacode.onrender.com/api/auth/user',{
-//         method:"GET",
-//        headers:{
-//         "Authorization":`Bearer ${token}`
-//        }        
-//        })
-//        let userData = await userinfo.json()
-//        setUser({
-//         username:userData.username
-//        })
-//     }
-// }
-// fetchdata()
-// },[])
+   const token = localStorage.getItem('token');
+    const userinfo = await fetch('https://alphacode.onrender.com/api/auth/user',{
+        method:"GET",
+       headers:{
+        "Authorization":`Bearer ${token}`
+       }        
+       })
+       let userData = await userinfo.json()
+       setUser({
+        username:userData.username
+       })
+    }
+}
+fetchdata()
+},[])
     return <>
         <div className={css.aboutContainer}>
 
