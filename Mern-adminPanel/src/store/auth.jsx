@@ -25,10 +25,7 @@ export const AuthProvider = ({children}) =>{
     };
 
     const modified = async() => {
-      if (token ===null) {
-          console.log("is null");
-          
-      }
+    
       localStorage.getItem('token') === null? localStorage.removeItem('token'):localStorage.getItem('token')
       const responce = await fetch('https://alphacode.onrender.com/api/auth/', {
              method:"GET",
@@ -60,9 +57,9 @@ export const AuthProvider = ({children}) =>{
 
     // THis operator is used to convert the value in boolean
     const isloggedIn = !!token;
-    if (isloggedIn) {
-        admin =token===null?localStorage.removeItem('token'):decodeToken(token).isAdmin  ;
-        userid =token===null?localStorage.removeItem('token'):decodeToken(token).userId;
+    if (isloggedIn && token !== null) {
+        admin =decodeToken(token).isAdmin  ;
+        userid =decodeToken(token).userId;
     }
      else{
       admin = false

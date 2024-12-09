@@ -7,7 +7,10 @@ import { useNavigation } from "react-router-dom";
 
 const Home = () =>{
   const { isAdmin , Admintoken,modified,isloggedIn} = useAuth()
-
+  if (localStorage.getItem('token') ===null) {
+    console.log("is null");
+    
+}
   useEffect(()=>{
     if (isloggedIn) {
       modified()
