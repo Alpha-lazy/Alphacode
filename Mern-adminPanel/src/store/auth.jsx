@@ -25,6 +25,10 @@ export const AuthProvider = ({children}) =>{
     };
 
     const modified = async() => {
+      if (token ===null) {
+          console.log("is null");
+          
+      }
       localStorage.getItem('token') === null? localStorage.removeItem('token'):localStorage.getItem('token')
       const responce = await fetch('https://alphacode.onrender.com/api/auth/', {
              method:"GET",
