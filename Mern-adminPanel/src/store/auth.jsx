@@ -3,6 +3,7 @@ import { isExpired, decodeToken } from "react-jwt";
 import CircularJSON from 'circular-json'
 
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 var admin = false
 var userid;
 
@@ -12,7 +13,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children}) =>{
 
     // Making the state token for logout and login
-
+  const navigate = useNavigate()
     const[token,setToken] = useState(localStorage.getItem('token'))
           
     const Admintoken = `Bearer ${token}` 
@@ -59,7 +60,10 @@ export const AuthProvider = ({children}) =>{
     const isloggedIn = !!token;
     if (token === "undefined") {
       admin = false
-     return localStorage.removeItem('token');
+      localStorage.removeItem('token');
+      navigate(0)
+      navigate(0)
+      
    }
     if (isloggedIn) {
         admin =decodeToken(token).isAdmin  ;
