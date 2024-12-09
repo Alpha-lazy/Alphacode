@@ -41,8 +41,11 @@ export const AuthProvider = ({children}) =>{
       }
       else{
         let data = await responce.json()
-        localStorage.setItem('token',data.token);
-        toast.success(data.message)
+        data.message
+        ? toast.error(data.message)
+        :localStorage.setItem('token',data.token);
+        
+      
         
 
       }
