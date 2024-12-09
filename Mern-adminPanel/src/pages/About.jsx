@@ -11,11 +11,11 @@ const About = () => {
     })
 
         const {isloggedIn,modified} = useAuth()
+       
+    useEffect(()=>{
         if (condition) {
             modified()
         }
-    useEffect(()=>{
-  
         const fetchdata = async() =>{
 
         

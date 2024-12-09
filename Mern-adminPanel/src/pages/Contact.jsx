@@ -6,10 +6,7 @@ import {toast} from 'react-toastify';
 function Contact() {
    const {Connect,isloggedIn,modified} = useAuth();
    const token = localStorage.getItem('token')
-   if (isloggedIn) {
-    
-     modified()
-   }
+   
     const[contact,setContact] = useState({
         username:"",
         email:"",
@@ -26,7 +23,10 @@ function Contact() {
        
      }
     useEffect(()=>{
-
+      if (isloggedIn) {
+    
+        modified()
+      }
    const data = async() =>{
     if (isloggedIn) {
       

@@ -5,11 +5,8 @@ import {toast} from 'react-toastify';
 
 
 function Admincontact() {
-  const { Admintoken,modified, isloggedIn } = useAuth()
-  if (isloggedIn) {
-    
-    modified()
-  }
+  const { Admintoken } = useAuth()
+ 
   const [contactData, setcontactData] = useState([]);
   const [errMessage, seterrMessage] = useState();
   const [loader, setLoader] = useState(true)

@@ -15,10 +15,8 @@ const Register = () =>{
           password:""
        })
        const [userOtp,setUserOtp] = useState("")
-    const {storeTokenInLS,Connect,modified,isloggedIn} = useAuth();
-    if (isloggedIn) {
-      modified()
-    }
+    const {storeTokenInLS,Connect} = useAuth();
+    
     
        const handleInput =(e) =>{
          let name = e.target.name

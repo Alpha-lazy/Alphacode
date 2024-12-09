@@ -7,11 +7,14 @@ import { useNavigation } from "react-router-dom";
 
 const Home = () =>{
   const { isAdmin , Admintoken,modified,isloggedIn} = useAuth()
+ 
+  useEffect(()=>{
+    if (isloggedIn) {
+      modified()
+      
+    }
+  })
   
-  if (isloggedIn) {
-    modified()
-    
-  }
       
    
 
