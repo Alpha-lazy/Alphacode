@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useAuth } from '../store/auth';
 import {toast} from 'react-toastify';
 import { Navigate, useNavigate } from 'react-router-dom';
+import Login from './Login';
 
 function AdminUser() {
    const { Admintoken ,userid} = useAuth()
@@ -122,6 +123,8 @@ const editdata =  (editId) =>{
 }
  
 const addData = () =>{
+   console.log("clicked");
+   
     return <Navigate to="/register"/>
 }
    
@@ -167,7 +170,7 @@ const addData = () =>{
             })
           }
 
-              <button style={{ width: "80px", height: "30px",border:"none", borderRadius: "10px", backgroundColor: "#0571c9", fontSize: "15px", cursor: "pointer", fontWeight: "500", color: "white" }} onClick={()=>{addData()}}>Add User +</button>
+              <button style={{ width: "100px", height: "30px",border:"none", borderRadius: "5px", backgroundColor: "#0571c9", fontSize: "15px", cursor: "pointer", fontWeight: "500", color: "white" }} onClick={addData}>Add User +</button>
          </tbody>
       
       </table>
