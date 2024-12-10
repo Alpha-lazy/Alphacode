@@ -177,7 +177,7 @@ const Register = () =>{
                    </div>
                 <div className={css.formconatainer} id="formcontainer"  >
                 <form action="" className={css.form} onSubmit={handleForm}  method="post">
-                         <h1 className={css.h1} id="h1">Sign in</h1>
+                         <h1 className={css.h1} id="h1">Add User</h1>
                        
                       
                        
