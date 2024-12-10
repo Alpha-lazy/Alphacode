@@ -15,7 +15,7 @@ const Register = () =>{
           password:""
        })
        const [userOtp,setUserOtp] = useState("")
-    const {storeTokenInLS,Connect} = useAuth();
+    const {storeTokenInLS,Connect,isAdmin} = useAuth();
     if (!isAdmin) {
           <Navigate to="/"/>
     }
