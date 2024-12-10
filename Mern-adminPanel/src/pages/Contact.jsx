@@ -3,6 +3,7 @@ import css from './Contact.module.css'
 import { useAuth } from '../store/auth';
 import Contactimage from '../image/Contact.png'
 import {toast} from 'react-toastify';
+import { Navigate } from 'react-router-dom';
 function Contact() {
    const {Connect,isloggedIn,modified} = useAuth();
    const token = localStorage.getItem('token')

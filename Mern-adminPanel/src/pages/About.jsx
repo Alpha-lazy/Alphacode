@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { useAuth } from "../store/auth"
 
 const About = () => {
-    const navigate = useNavigate()
+    
     const[user,setUser] = useState({
         username:""
     })

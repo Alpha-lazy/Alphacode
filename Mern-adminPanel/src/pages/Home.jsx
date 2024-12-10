@@ -1,5 +1,5 @@
 import React, { useEffect }  from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate,Navigate } from "react-router-dom";
 import css from "./Home.module.css"
 import homeImage from "../image/home-img.png"
 import { useAuth } from "../store/auth";

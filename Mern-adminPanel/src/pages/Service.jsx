@@ -4,6 +4,7 @@ import image from '../image/Service.png'
 import { useEffect, useState } from "react"
 import spiner from '../image/loader.gif'
 import { useAuth } from "../store/auth"
+import { Navigate } from "react-router-dom"
 
 const Service = () => {
     const [data, setData] = useState([]);
