@@ -123,12 +123,10 @@ const Register = () =>{
               
               
                if (responce.ok) {
-                const res_data = await responce.json()
+               //  const res_data = await responce.json()
                 
-                
-                console.log(res_data.token);
-                
-                storeTokenInLS(res_data.token)
+               //  storeTokenInLS(res_data.token)
+               
                 
                  setUser({
                     username:"",
@@ -136,8 +134,8 @@ const Register = () =>{
                     phone:"",
                     password:""
                  })
-                 navigate("/")
-                 toast.success("regestritation seccessfull")
+                 navigate("/admin/user")
+                 toast.success("User added seccessfully")
               
                }
                else{
