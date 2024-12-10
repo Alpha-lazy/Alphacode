@@ -17,10 +17,17 @@ const Navbar = () => {
 
                 <nav className={css.navbar}>
                     <ul>
-                        <li><NavLink to="/">Home</NavLink></li>
+                        {isloggedIn
+                        ?(<><li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/about">About</NavLink></li>
                         <li><NavLink to="/contact">Contact</NavLink></li>
                         <li><NavLink to="/service">Services</NavLink></li>
+                        </>)
+                        :(<>
+                        <li><NavLink to="/register">Signup</NavLink></li>
+                        <li><NavLink to="/login">Login</NavLink></li>
+                        </>)}
+                        
                         {isAdmin?
                          <li><NavLink to="/admin">Admin</NavLink></li>
                         :''}

@@ -9,7 +9,9 @@ const Service = () => {
     const [data, setData] = useState([]);
     const [loader,setLoader] = useState(true)
     const {modified,isloggedIn} = useAuth()
-   
+    if (!isloggedIn) {
+        return <Navigate to="/login"/>
+   }
     useEffect(() => {
         if (isloggedIn) {
         

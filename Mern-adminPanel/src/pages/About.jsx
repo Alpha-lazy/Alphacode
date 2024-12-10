@@ -1,16 +1,19 @@
 import css from "./About.module.css"
-import { NavLink } from "react-router-dom"
+import { Navigate, NavLink, useNavigate } from "react-router-dom"
 import image from "../image/About.png"
 import { useEffect, useState } from "react"
 import { useAuth } from "../store/auth"
 
 const About = () => {
-
+    const navigate = useNavigate()
     const[user,setUser] = useState({
         username:""
     })
   
         const {isloggedIn,modified} = useAuth()
+        if (!isloggedIn) {
+             return <Navigate to="/login"/>
+        }
        
     useEffect(()=>{
         if (isloggedIn) {

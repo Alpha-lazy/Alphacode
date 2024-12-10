@@ -7,7 +7,9 @@ import { useNavigation } from "react-router-dom";
 
 const Home = () =>{
   const { isAdmin , Admintoken,modified,isloggedIn} = useAuth()
-
+  if (!isloggedIn) {
+    return <Navigate to="/login"/>
+}
 
 
   useEffect(()=>{
