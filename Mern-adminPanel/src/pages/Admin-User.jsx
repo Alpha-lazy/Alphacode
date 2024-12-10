@@ -167,9 +167,9 @@ const addData = () =>{
             })
           }
 
-
-        </tbody>
-        <button><button style={{ width: "80px", height: "30px",border:"none", borderRadius: "10px", backgroundColor: "#0571c9", fontSize: "15px", cursor: "pointer", fontWeight: "500", color: "white" }} onClick={()=>{addData()}}>Add User +</button></button>
+              <button style={{ width: "80px", height: "30px",border:"none", borderRadius: "10px", backgroundColor: "#0571c9", fontSize: "15px", cursor: "pointer", fontWeight: "500", color: "white" }} onClick={()=>{addData()}}>Add User +</button>
+         </tbody>
+      
       </table>
      </>
   )
