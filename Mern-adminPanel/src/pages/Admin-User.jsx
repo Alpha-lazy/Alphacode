@@ -125,7 +125,7 @@ const editdata =  (editId) =>{
 const addData = () =>{
    console.log("clicked");
    
-    return <Navigate to="/register"/>
+    // return <Navigate to="/register"/>
 }
    
 
@@ -170,7 +170,7 @@ const addData = () =>{
             })
           }
 
-              <button style={{ width: "100px", height: "30px",border:"none", borderRadius: "5px", backgroundColor: "#0571c9", fontSize: "15px", cursor: "pointer", fontWeight: "500", color: "white" }} onClick={addData}>Add User +</button>
+              <button style={{ width: "100px", height: "30px",border:"none", borderRadius: "5px", backgroundColor: "#0571c9", fontSize: "15px", cursor: "pointer", fontWeight: "500", color: "white" }} onClick={addData()}>Add User +</button>
          </tbody>
       
       </table>
