@@ -1,13 +1,13 @@
 import css from "./Register.module.css"
 import {useState} from "react"
-import { useNavigate } from "react-router-dom"
+import { Navigate, useNavigate } from "react-router-dom"
 import { useAuth } from "../store/auth";
 import Signupimage from "../image/Signup.png"
 import {toast} from 'react-toastify';
 
 const Register = () =>{
    const navigate = useNavigate();
-  
+    
        const[user,setUser] = useState({
           username:"",
           email:"",
@@ -16,7 +16,9 @@ const Register = () =>{
        })
        const [userOtp,setUserOtp] = useState("")
     const {storeTokenInLS,Connect} = useAuth();
-    
+    if (!isAdmin) {
+          <Navigate to="/"/>
+    }
     
        const handleInput =(e) =>{
          let name = e.target.name
