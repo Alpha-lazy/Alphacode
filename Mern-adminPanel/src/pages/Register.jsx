@@ -183,7 +183,7 @@ const Register = () =>{
                        
                         
                          <input type="text" name="username" value={user.username} onChange={handleInput} required id="name"/>
-                         <label htmlFor="name">Your Name</label>
+                         <label htmlFor="name">User Name</label>
                          <input type="email" name="email" value={user.email} onChange={handleInput} required  id="email"/>
                          <label htmlFor="email">Email</label>
                          <input type="number" name="phone" value={user.phone} onChange={handleInput}required   id="phone" />

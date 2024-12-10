@@ -170,7 +170,7 @@ function adddata() {
             })
           }
 
-              <button style={{ width: "100px", height: "30px",border:"none", borderRadius: "5px", backgroundColor: "#0571c9", fontSize: "15px", cursor: "pointer", fontWeight: "500", color: "white" }} onClick={()=>{adddata()}}>Add User +</button>
+              <button style={{ width: "100px", height: "30px",border:"none", borderRadius: "5px", backgroundColor: "#0571c9", fontSize: "15px", cursor: "pointer", fontWeight: "500", color: "white", marginTop:"15px" }} onClick={()=>{adddata()}}>Add User +</button>
          </tbody>
       
       </table>
