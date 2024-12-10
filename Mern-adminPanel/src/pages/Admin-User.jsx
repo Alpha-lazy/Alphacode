@@ -124,7 +124,7 @@ const editdata =  (editId) =>{
  
 function adddata() {
   console.log('clicked');
-  <Navigate to="/register"/>
+  navigate("/register").then(console.log("redirected"))
   
 }
    
