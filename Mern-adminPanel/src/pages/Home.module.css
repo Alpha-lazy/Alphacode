@@ -46,11 +46,24 @@ border:2px solid white,
     flex-wrap: wrap;
     height: auto;
     max-height: 900px;
-    width: 90vw;
+    width: 80vw;
     overflow-y: scroll;
    
 }
 
+.imgcontainer{
+    display: flex;
+    justify-content: center;
+    width: 80vw;
+    max-height: 900px;
+    height: auto;
+    overflow-y: scroll;
+    background-color: rgba(46, 46, 46, 0.212);
+}
+
+.imgcontainer::-webkit-scrollbar{
+    background-color: transparent;
+}
 .container::-webkit-scrollbar{
     background-color: transparent;
 }

@@ -3,7 +3,7 @@ const Post = require("../model/post-model");
 
 const post = async(req,res) =>{
      try {
-         const data = await Post.find({});
+         const data = await Post.find(req.body);
 
          if (data.length === 0) {
             return res.status(400).json({message:"No any post found"})

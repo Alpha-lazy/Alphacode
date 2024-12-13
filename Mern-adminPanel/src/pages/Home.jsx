@@ -14,6 +14,7 @@ const Home = () => {
   const [data, setData] = useState([])
   const [message, setMessage] = useState()
   const [isloading, setLoading] = useState(true)
+  const [image, setImage] = useState()
   const navigate = useNavigate()
   if (!isloggedIn) {
     return <Navigate to="/login" />
@@ -63,6 +64,29 @@ const Home = () => {
        }
    }
 
+   const showUmage = async(id) =>{
+    const postData = await fetch('https://alphacode.onrender.com/api/post/',{
+      method:"GET",
+      headers:{
+        "Content-Type" :"application/json"
+    },
+    body: JSON.stringify({_id:id})
+    });
+    const res_data = await postData.json();
+    
+    if (postData.ok) {
+      setImage(res_data)
+         document.getElementById('imgcontainer').style.display = 'block'
+         
+    }
+    else{
+     setImage({})
+      setMessage(data.message)
+       document.getElementById('imgcontainer').style.display = 'none'
+      
+    }
+   }
+
   
 
 
@@ -83,6 +107,13 @@ const Home = () => {
       <IoMdAdd style={{width:"30px", height:"30px"}} />
       </button>
     <div className={css.body}>
+
+      <div className={css.container} id="imgcontainer">
+               <h2 className={css.postHeading}>{image.title}</h2>
+               {image.fileurl===""||image.fileurl===null?"":<img src={image.fileurl} alt="" />}
+               <p style={{whiteSpace:"pre-wrap", width:"700px",overflowWrap:"break-word" ,color:"white"}}>{image.content}</p>
+              
+      </div>
    
       <div className={css.container}>
 
@@ -111,7 +142,7 @@ const Home = () => {
          :data.length === 0 
          ?<h3 style={{color:"white"}}>{message}</h3>
          :data.map((postData, index)=>{
-         return<div className={css.postContainer} key={index}>
+         return<div className={css.postContainer} onClick={()=>{showUmage(postData._id)}} key={index}>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
            <div style={{color:"#767676", fontSize:"15px"}}>{postData.date}</div>
         
