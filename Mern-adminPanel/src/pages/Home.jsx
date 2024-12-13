@@ -115,13 +115,13 @@ const Home = () => {
           <div style={{ display: "flex", justifyContent: "space-between" }}>
            <div style={{color:"#767676", fontSize:"15px"}}>{postData.date}</div>
         
-             <MdDelete  id="delete" onClick={()=>{deletePost(postData._id)}}  className={css.delete}  style={isAdmin?{ display:"block" ,color: "rgb(185 183 183)", width: "25px", height: "25px" }:{display:"none"}  } />
+             <MdDelete  id="delete" onClick={()=>{deletePost(postData._id)}}  className={css.delete}  style={isAdmin?{ display:"block" ,color: "rgb(185 183 183)", width: "25px", height: "25px"}:{display:"none"}  } />
              
           </div>
           <h2 className={css.postHeading}>{postData.title}</h2>
 
 
-          <p className={css.postMessage}>{postData.content}</p>
+          <p className={css.postMessage} style={{whiteSpace:"pre-wrap" }}>{postData.content}</p>
 
         </div>})
         }

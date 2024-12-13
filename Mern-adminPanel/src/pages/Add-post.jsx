@@ -32,7 +32,6 @@ function Addpost() {
             if (responce.ok) {
                 let data = await responce.json()
                 console.log(data,"hi");
-                
                 navigate("/")
               return toast.success(data.message);
                
