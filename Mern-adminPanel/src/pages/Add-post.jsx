@@ -5,11 +5,11 @@ import { toast } from 'react-toastify'
 
 function Addpost() {
     const {Connect} = useAuth()
-    const {postData, setPostData} = useState({
+    const [postData, setPostData] = useState({
         title:"",
         content:""
     })
-    console.log(postData);
+   
     
 
     const handleInput = (e) => {
@@ -42,9 +42,9 @@ function Addpost() {
                 <div className={css.formconatainer}>
                     <form action="" className={css.form} onSubmit={handleForm} method="post">
 
-                        <input type="text" name="title"  onChange={handleInput} required id="title" />
+                        <input type="text" name="title" value={postData.title}  onChange={handleInput} required id="title" />
                         <label htmlFor="name">Title</label>
-                        <textarea id="message" name="content"  onChange={handleInput} required rows="4" cols="60" placeholder='Type your message'></textarea>
+                        <textarea id="message" name="content" value={postData.content}  onChange={handleInput} required rows="4" cols="60" placeholder='Type your message'></textarea>
                         <label htmlFor="message" className='messageLabel' style={{ marginTop: "-142px" }}>Your Content</label>
 
 
