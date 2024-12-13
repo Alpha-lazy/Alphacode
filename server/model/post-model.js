@@ -20,6 +20,7 @@ const postSchema = new Schema({
       date:{
         type:String,
         default:`${date.toLocaleString("en-US", {
+          timeZone: "Asia/Kolkata",
           day: "2-digit",
           month: "short",
           year: "numeric",
