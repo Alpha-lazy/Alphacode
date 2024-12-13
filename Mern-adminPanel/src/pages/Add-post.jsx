@@ -26,7 +26,7 @@ function Addpost() {
                 
                 setImage(e.target.result);
                 setPostData({
-                    fileurl:image
+                    fileurl:e.target.result
                 })
                 
              };
