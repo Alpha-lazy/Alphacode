@@ -40,6 +40,7 @@ const Home = () => {
    }
    const deletePost = async(e) =>{
       //  let id = await e.target;
+      console.log("hi");
       
         console.log(e.target);
         
@@ -112,7 +113,7 @@ const Home = () => {
          return<div className={css.postContainer} key={index}>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
            <div style={{color:"#767676", fontSize:"15px"}}>{postData.date}</div>
-           <div  onClick={deletePost()} id={postData._id}>
+           <div  onClick={()=>{deletePost()}} id={postData._id}>
              <MdDelete  className={css.delete}  style={{ color: "rgb(185 183 183)", width: "25px", height: "25px" }} />
              </div>
           </div>
