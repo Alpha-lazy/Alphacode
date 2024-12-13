@@ -29,9 +29,12 @@ function Addpost() {
             
             if (responce.ok) {
                 let data = await responce.json()
-               return toast.success(data.message);
+              toast.success(data.message);
             }
-            toast.error("Post is not added")
+            else{
+
+                toast.error("Post is not added")
+            }
           } catch (error) {
               toast.error("Internal Server Error")
           }

@@ -39,8 +39,10 @@ const Home = () => {
         }
    }
    const deletePost = async(e) =>{
-       let id = e.target.id;
-
+       let id = e.target;
+      
+        console.log(id);
+        
        const responce = await fetch(`https://alphacode.onrender.com/api/post/deletepost${id}`, {
         method:"DELETE",
         headers:{
