@@ -25,9 +25,8 @@ function Addpost() {
                 setImage(e.target.result);
                 setPostData({
                 
-                    fileurl:image
+                    fileurl:e.target.result
                 })
-                console.log(e.target.result);
                 
              };
 
@@ -57,7 +56,7 @@ function Addpost() {
 
          
     }
-    console.log(postData);
+    console.log(image);
     
    
     const handleForm = async(e) =>{
