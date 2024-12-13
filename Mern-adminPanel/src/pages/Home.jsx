@@ -121,8 +121,8 @@ const Home = () => {
           <h2 className={css.postHeading}>{postData.title}</h2>
 
         <div style={{display:"flex",justifyContent:"space-between"}}>
-          <p className={css.postMessage} style={{whiteSpace:"pre-wrap" }}>{postData.content}</p>
-          <img src={postData.fileurl} alt="" width="150px" height="150px" />
+          <p className={css.postMessage} style={{whiteSpace:"pre-wrap", width:"700px",overflowWrap:"break-word" }}>{postData.content}</p>
+          <img src={postData.fileurl} alt="" width="150px" height="150px" style={{marginLeft:"10px"}} />
         </div>
         </div>})
         }
