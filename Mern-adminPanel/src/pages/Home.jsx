@@ -54,6 +54,7 @@ const Home = () => {
            fetchdata()
        }
        else{
+        setData([])
         let data = await responce.json();
         toast.error(data.message);
        }
