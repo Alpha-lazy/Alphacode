@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 function Addpost() {
     const {Connect} = useAuth()
     const navigate = useNavigate()
-    const [image, setImage] = useState()
+    const [image, setImage] = useState("")
     const [postData, setPostData] = useState({
         title:"",
         content:"",
@@ -16,15 +16,15 @@ function Addpost() {
    
     const  handleImage = (e) =>{
         const file = e.target.files[0];
-   console.log(file);
+
    
         // if (file) {
              const reader = new FileReader();
 
              reader.onload = (e) =>{
+                console.log(e.target.result);
                 setImage(e.target.result);
                 setPostData({
-                
                     fileurl:image
                 })
                 
