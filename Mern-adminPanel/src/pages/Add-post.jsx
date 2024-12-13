@@ -43,7 +43,7 @@ function Addpost() {
         // else{
 
         // }
-        console.log("this is the image state: ",image);
+        
         
       }
 
@@ -61,6 +61,9 @@ function Addpost() {
 
          
     }
+
+    console.log(postData);
+    
     
     
    
