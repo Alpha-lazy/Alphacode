@@ -31,11 +31,15 @@ function Addpost() {
             
             if (responce.ok) {
                 let data = await responce.json()
-               toast.success(data.message);
-               navigate("/")
+                console.log(data,"hi");
+                
+                navigate("/")
+              return toast.success(data.message);
+               
             }
             else{
-
+               console.log('by');
+               
                 toast.error("Post is not added")
             }
             
