@@ -20,13 +20,13 @@ const Home = () => {
 
    const fetchdata = async() => {
     setLoading(true)
-        const postData = await fetch('https://alphacode.onrender.com/api/post',{
+        const postData = await fetch('https://alphacode.onrender.com/api/post/',{
           method:"GET",
           headers:{
             "Content-Type" :"application/json"
         },
         });
-        const data = postData.json();
+        const data = await postData.json();
         
         if (postData.ok) {
              setData(data);
