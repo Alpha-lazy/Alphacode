@@ -1,4 +1,4 @@
-.info>p{
+/* .info>p{
     color: white;
 }
 .info{
@@ -31,4 +31,80 @@
 .b2{
 border:2px solid white,
 
+} */
+ .body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+.container{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    margin-top: 60px;
+    flex-wrap: wrap;
+    height: auto;
+    max-height: 900px;
+    width: 90vw;
+    overflow-y: scroll;
+   
+}
+
+.container::-webkit-scrollbar{
+    background-color: transparent;
+}
+.postContainer{
+    width: 900px;
+    height: auto;
+    /* border: 1px solid white; */
+    background-color: rgba(46, 46, 46, 0.212);
+    /* background-color: transparent; */
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-top: 30px;
+   
+}
+
+.delete{
+    transition: all .3s ease-in-out;
+    opacity: 0;
+    cursor: pointer;
+}
+.postContainer:hover .delete{
+      opacity: 1;
+}
+
+.postHeading{
+    color: white;
+
+}
+.postMessage{
+    color: rgb(224, 224, 224);
+    text-align: justify;
+}
+
+.addPost{
+    font-size: 15px;
+    border: none;
+    background-color:rgb(22 22 22);
+    float: right;
+    margin-right: 20px;
+    height: 40px;
+    border-radius: 50%;
+    width: 40px;
+    position: absolute;
+    right: 20px;
+    top: 94px;
+    display: flex;
+    align-items: center;
+    color: #d1d1d1;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+
+.addPost:hover{
+    background-color:rgb(37, 37, 37);
+    
+    
 }

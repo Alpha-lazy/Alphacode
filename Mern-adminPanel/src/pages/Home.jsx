@@ -1,31 +1,87 @@
-import React, { useEffect }  from "react";
-import { NavLink, useNavigate,Navigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate, Navigate } from "react-router-dom";
 import css from "./Home.module.css"
 import homeImage from "../image/home-img.png"
 import { useAuth } from "../store/auth";
 import { useNavigation } from "react-router-dom";
+import { MdDelete } from "react-icons/md";
+import { IoMdAdd } from "react-icons/io";
+import { toast } from "react-toastify";
 
-const Home = () =>{
-  const { isAdmin , Admintoken,modified,isloggedIn} = useAuth()
+
+const Home = () => {
+  const { isAdmin, Admintoken, modified, isloggedIn, Connect } = useAuth()
+  const [data, setData] = useState([])
+  const [message, setMessage] = useState()
+  const [isloading, setLoading] = useState(true)
   if (!isloggedIn) {
-    return <Navigate to="/login"/>
-}
+    return <Navigate to="/login" />
+  }
+
+   const fetchdata = async() => {
+    setLoading(true)
+        const postData = await fetch('https://alphacode.onrender.com/api/post',{
+          method:"GET",
+          headers:{
+            "Content-Type" :"application/json"
+        },
+        });
+        const data = postData.json();
+        
+        if (postData.ok) {
+             setData(data);
+             setLoading(false)
+        }
+        else{
+          setData([])
+          setMessage(data.message)
+          setLoading(false)
+        }
+   }
+   const deletePost = async(e) =>{
+       let id = e.target.id;
+
+       const responce = await fetch(`https://alphacode.onrender.com/api/post/deletepost${id}`, {
+        method:"DELETE",
+        headers:{
+          "Content-Type" :"application/json"
+        },
+       })
+
+       if (responce.ok) {
+           let data = await responce.json();
+           toast.success(data.message);
+           fetchdata()
+       }
+       else{
+        let data = await responce.json();
+        toast.error(data.message);
+       }
+   }
+
+  
 
 
-  useEffect(()=>{
+  useEffect(() => {
     if (isloggedIn) {
       modified()
-      
+
     }
-  },[])
-  
-      
+    fetchdata()
+  }, [])
+
+
+
+
+  return <>
+      <button className={css.addPost} onClick={()=>{return <Navigate to="/login" />}}>
+      <IoMdAdd style={{width:"30px", height:"30px"}} />
+      </button>
+    <div className={css.body}>
    
+      <div className={css.container}>
 
-    return <>
-            <div className={css.container}>
-
-             <section className={css.infocontainer}>
+        {/* <section className={css.infocontainer}>
                 <div className={css.info}>
                   <p>We are the World best it Company</p>
                   <h1 style={{color:"white", fontSize:"30px",margin:"0px"}}>Welcome to Alpha Code</h1>
@@ -43,12 +99,36 @@ const Home = () =>{
                 <img src={homeImage} alt="" width="350px"
                 height="350px" />
               </div>
-             </section>
+             </section> */}
 
-            </div>
-             
-       
-       </>
+       {isloading
+         ?<h3 style={{color:"white"}}>Loading...</h3>
+         :data.length === 0 
+         ?<h3 style={{color:"white"}}>{message}</h3>
+         :data.map((postData, index)=>{
+         return<div className={css.postContainer} key={index}>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+           <div style={{color:"#767676", fontSize:"15px"}}>{postData.date}</div>
+            <MdDelete className={css.delete} onClick={()=>{deletePost()}} id={postData._id} style={{ color: "rgb(185 183 183)", width: "25px", height: "25px" }} />
+          </div>
+          <h2 className={css.postHeading}>{postData.title}</h2>
+
+
+          <p className={css.postMessage}>{postData.content}</p>
+
+        </div>})
+        }
+        
+
+
+         
+
+
+      </div>
+    </div>
+
+
+  </>
 }
 
 export default Home
