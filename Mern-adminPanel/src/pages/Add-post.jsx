@@ -22,7 +22,7 @@ function Addpost() {
              const reader = new FileReader();
              
              reader.onload = (e) =>{
-                console.log(e.target.result);
+              
                 
                 setImage(e.target.result);
                 setPostData({
