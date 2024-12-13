@@ -39,7 +39,7 @@ const Home = () => {
         }
    }
    const deletePost = async(e) =>{
-       let id = e.target;
+       let id = await e.target;
       
         console.log(id);
         
