@@ -189,7 +189,7 @@ const Register = () =>{
                          <input type="password" name="password" value={user.password} onChange={handleInput} required id="password" />
                          <label htmlFor="password">Password</label>
 
-                         <button type="submit">Sign In</button>
+                         <button type="submit">Add User</button>
                 </form>
                 </div>
 
