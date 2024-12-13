@@ -8,6 +8,7 @@ import { IoMdAdd } from "react-icons/io";
 import { toast } from "react-toastify";
 
 
+
 const Home = () => {
   const { isAdmin, Admintoken, modified, isloggedIn, Connect } = useAuth()
   const [data, setData] = useState([])
@@ -17,12 +18,9 @@ const Home = () => {
   if (!isloggedIn) {
     return <Navigate to="/login" />
   }
-  if (!isAdmin) {
-    let deleteicon = document.getElementById('delete');
-    let addPost = document.getElementById('addPost');
-    deleteicon.style.display = 'none'
-    addPost.style.display = 'none'
-  }
+
+ 
+  
 
    const fetchdata = async() => {
     setLoading(true)
@@ -74,6 +72,12 @@ const Home = () => {
 
     }
     fetchdata()
+    if (!isAdmin) {
+      let deleteicon = document.getElementById('delete');
+      let addPost = document.getElementById('addPost');
+      deleteicon.style.display = 'none'
+      addPost.style.display = 'none'
+    }
   }, [])
 
 
