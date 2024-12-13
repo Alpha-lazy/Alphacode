@@ -9,7 +9,7 @@ function Addpost() {
         title:"",
         content:""
     })
-    console.log(postData.title);
+    console.log(postData);
     
 
     const handleInput = (e) => {
