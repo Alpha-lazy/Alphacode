@@ -12,6 +12,11 @@ const postSchema = new Schema({
         require:true
       },
 
+      fileurl:{
+        type:String,
+        require:true
+      },
+
       date:{
         type:String,
         default:`${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}` 

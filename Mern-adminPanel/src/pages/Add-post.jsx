@@ -7,23 +7,54 @@ import { useNavigate } from 'react-router-dom'
 function Addpost() {
     const {Connect} = useAuth()
     const navigate = useNavigate()
+    const [image, setImage] = useState()
     const [postData, setPostData] = useState({
         title:"",
-        content:""
+        content:"",
+        fileurl:""
     })
    
-    
+    const  handleImage = (e) =>{
+        const file = e.target.files[0];
+
+        if (file) {
+             const reader = new FileReader();
+
+             reader.onload = (e) =>{
+                setImage(e.target.result);
+                setPostData({
+                    ...postData,
+                    fileurl:image
+                })
+             };
+
+             reader.onerror = (e) =>{
+                toast.error("Error reading file.")
+                console.error("File reading error:", e);
+             };
+
+             reader.readAsDataURL(file)
+        }
+
+        else{
+            setImage("");
+        }
+      }
+
 
     const handleInput = (e) => {
           let name = e.target.name;
           let value = e.target.value;
 
+         
           setPostData({
             ...postData,
             [name]:value
           })
-    }
 
+         
+    }
+   
     const handleForm = async(e) =>{
           e.preventDefault();
           try {
@@ -55,9 +86,11 @@ function Addpost() {
                     <form action="" className={css.form} onSubmit={handleForm} method="post">
 
                         <input type="text" name="title" value={postData.title}  onChange={handleInput} required id="title" placeholder='Title' />
-                        <label htmlFor="name">Title</label>
-                        <textarea id="message" name="content" value={postData.content}  onChange={handleInput} required rows="4" cols="60" placeholder='Type your content here...'></textarea>
-                        <label htmlFor="message" className='messageLabel' style={{ marginTop: "-229px" }}>Your Content</label>
+                        <label htmlFor="title">Title</label>
+                        <input type="file" name="fileurl"   onChange={handleImage} required id="fileurl" placeholder='Title' />
+                        <label htmlFor="fileurl">Upload image</label>
+                        <textarea name="content" value={postData.content}  onChange={handleInput} required rows="4" cols="60" placeholder='Type your content here...'></textarea>
+                        <label htmlFor="content" className='messageLabel' style={{ marginTop: "-229px" }}>Your Content</label>
 
 
                         <button type="submit">Add</button>
