@@ -14,7 +14,11 @@ const Home = () => {
   const [data, setData] = useState([])
   const [message, setMessage] = useState()
   const [isloading, setLoading] = useState(true)
-  const [image, setImage] = useState()
+  const [image, setImage] = useState({
+    title:"",
+    content:"",
+    fileurl:""
+  })
   const navigate = useNavigate()
   if (!isloggedIn) {
     return <Navigate to="/login" />
