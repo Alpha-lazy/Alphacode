@@ -3,7 +3,6 @@ import { NavLink, useNavigate, Navigate } from "react-router-dom";
 import css from "./Home.module.css"
 import homeImage from "../image/home-img.png"
 import { useAuth } from "../store/auth";
-import { useNavigation } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
 import { toast } from "react-toastify";
@@ -14,6 +13,7 @@ const Home = () => {
   const [data, setData] = useState([])
   const [message, setMessage] = useState()
   const [isloading, setLoading] = useState(true)
+  const navigate = useNavigate()
   if (!isloggedIn) {
     return <Navigate to="/login" />
   }
@@ -75,7 +75,7 @@ const Home = () => {
 
 
   return <>
-      <button className={css.addPost} onClick={()=>{return <Navigate to="/login" />}}>
+      <button className={css.addPost} onClick={()=>{return navigate('/addpost')}}>
       <IoMdAdd style={{width:"30px", height:"30px"}} />
       </button>
     <div className={css.body}>

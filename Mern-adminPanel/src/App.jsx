@@ -17,6 +17,7 @@ import Admincontact from './pages/Admin-contact'
 import Useredit from './pages/User-edit'
 import Footer from './component/footer'
 import Adminblock from './pages/Admin-block'
+import Addpost from './pages/Add-post'
 
 function App() {
   
@@ -34,6 +35,7 @@ function App() {
             <Route  path='/login' element ={<Login/>} />
             <Route  path='/register' element ={<Register/>} />
             <Route path='/logout' element={<Logout/>}/>
+            <Route path='/addpost' element={<Addpost/>}/>
             <Route path='*' element={<NotFound/>}/>
 
             <Route path='/admin' element={<Adminlayout/>}>
