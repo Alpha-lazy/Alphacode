@@ -16,8 +16,9 @@ function Addpost() {
    
     const  handleImage = (e) =>{
         const file = e.target.files[0];
-
-        if (file) {
+   console.log(file);
+   
+        // if (file) {
              const reader = new FileReader();
 
              reader.onload = (e) =>{
@@ -36,11 +37,11 @@ function Addpost() {
              };
 
              reader.readAsDataURL(file)
-        }
+        // }
 
-        else{
-            setImage("");
-        }
+        // else{
+        //     setImage("");
+        // }
       }
 
 
@@ -91,7 +92,7 @@ function Addpost() {
 
                         <input type="text" name="title" value={postData.title}  onChange={handleInput} required id="title" placeholder='Title' />
                         <label htmlFor="title">Title</label>
-                        <input type="file" name="fileurl"   onChange={handleImage} required id="fileurl" placeholder='Title' />
+                        <input type="file" name="fileurl" value={postData.fileurl}  onChange={handleImage} required id="fileurl" placeholder='Title' />
                         <label htmlFor="fileurl">Upload image</label>
                         <textarea name="content" value={postData.content}  onChange={handleInput} required rows="4" cols="60" placeholder='Type your content here...'></textarea>
                         <label htmlFor="content" className='messageLabel' style={{ marginTop: "-229px" }}>Your Content</label>
