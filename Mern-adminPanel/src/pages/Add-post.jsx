@@ -41,7 +41,7 @@ function Addpost() {
         // }
 
         // else{
-            setImage("");
+
         // }
         console.log("this is the image state: ",image);
         
