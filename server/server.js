@@ -14,8 +14,8 @@ const PostRoute = require('./router/post-route')
 const bodyparse = require('body-parser')
 
 app.use(express.json());
-app.use(bodyparse.json({ limit: '50mb' }));
-app.use(bodyparse.urlencoded({ limit: '50mb', extended: true }));
+app.use(express.json({ limit: '500mb' }));
+app.use(express.urlencoded({ limit: '500mb', extended: true }));
 
 // cors access
 
