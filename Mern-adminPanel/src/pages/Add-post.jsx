@@ -63,7 +63,6 @@ function Addpost() {
          
     }
 
-    console.log(postData);
     
     
     
