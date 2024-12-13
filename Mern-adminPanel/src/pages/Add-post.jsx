@@ -27,18 +27,19 @@ function Addpost() {
     const handleForm = async(e) =>{
           e.preventDefault();
           try {
-            const responce = Connect("/api/post/addpost", postData);
+            const responce = await Connect("/api/post/addpost", postData);
             
             if (responce.ok) {
                 let data = await responce.json()
-              toast.success(data.message);
+               toast.success(data.message);
+               navigate("/")
             }
             else{
 
                 toast.error("Post is not added")
             }
             
-            navigate("/")
+            
 
           } catch (error) {
               toast.error("Internal Server Error")
