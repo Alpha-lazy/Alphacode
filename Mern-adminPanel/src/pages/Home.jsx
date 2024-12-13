@@ -79,7 +79,7 @@ const Home = () => {
 
 
   return <>
-      <button className={css.addPost} id="addPost" onClick={()=>{return navigate('/addpost')}}>
+      <button style={isAdmin?{display:"block"}:{display:"none"}} className={css.addPost} id="addPost" onClick={()=>{return navigate('/addpost')}}>
       <IoMdAdd style={{width:"30px", height:"30px"}} />
       </button>
     <div className={css.body}>
@@ -115,7 +115,7 @@ const Home = () => {
           <div style={{ display: "flex", justifyContent: "space-between" }}>
            <div style={{color:"#767676", fontSize:"15px"}}>{postData.date}</div>
         
-             <MdDelete id="delete" onClick={()=>{deletePost(postData._id)}}  className={css.delete}  style={{ color: "rgb(185 183 183)", width: "25px", height: "25px" }} />
+             <MdDelete  id="delete" onClick={()=>{deletePost(postData._id)}}  className={css.delete}  style={isAdmin?{ display:"block" ,color: "rgb(185 183 183)", width: "25px", height: "25px" }:{display:"none"}  } />
              
           </div>
           <h2 className={css.postHeading}>{postData.title}</h2>
@@ -138,11 +138,6 @@ const Home = () => {
   </>
 }
 
-if (!isAdmin) {
-  let deleteicon = document.getElementById('delete');
-  let addPost = document.getElementById('addPost');
-  deleteicon.style.display = 'none'
-  addPost.style.display = 'none'
-}
+
 
 export default Home
