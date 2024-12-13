@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import css from './Add-post.module.css'
 import { useAuth } from '../store/auth'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 function Addpost() {
     const {Connect} = useAuth()
+    const navigate = useNavigate()
     const [postData, setPostData] = useState({
         title:"",
         content:""
@@ -35,6 +37,9 @@ function Addpost() {
 
                 toast.error("Post is not added")
             }
+            
+            navigate("/")
+
           } catch (error) {
               toast.error("Internal Server Error")
           }
