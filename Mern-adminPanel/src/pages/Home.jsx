@@ -113,7 +113,7 @@ const Home = () => {
           <div style={{ display: "flex", justifyContent: "space-between" }}>
            <div style={{color:"#767676", fontSize:"15px"}}>{postData.date}</div>
            
-             <MdDelete  onClick={deletePost()} id={postData._id} className={css.delete}  style={{ color: "rgb(185 183 183)", width: "25px", height: "25px" }} />
+             <MdDelete  onClick={deletePost()} id={toString(postData._id)} className={css.delete}  style={{ color: "rgb(185 183 183)", width: "25px", height: "25px" }} />
            
           </div>
           <h2 className={css.postHeading}>{postData.title}</h2>
