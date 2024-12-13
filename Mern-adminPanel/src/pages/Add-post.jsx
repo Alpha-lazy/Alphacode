@@ -25,7 +25,7 @@ function Addpost() {
                 setImage(e.target.result);
                 setPostData({
                 
-                    fileurl:e.target.result
+                    fileurl:image
                 })
                 
              };
@@ -36,12 +36,16 @@ function Addpost() {
              };
 
              reader.readAsDataURL(file)
+             
         // }
 
         // else{
-        //     setImage("");
+            setImage("");
         // }
+        console.log(image);
+        
       }
+
 
 
     const handleInput = (e) => {
@@ -56,7 +60,7 @@ function Addpost() {
 
          
     }
-    console.log(image);
+    
     
    
     const handleForm = async(e) =>{
