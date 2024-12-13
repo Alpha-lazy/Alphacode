@@ -42,9 +42,9 @@ function Addpost() {
                 <div className={css.formconatainer}>
                     <form action="" className={css.form} onSubmit={handleForm} method="post">
 
-                        <input type="text" name="title" value={postData.title}  onChange={handleInput} required id="title" placeholder='tile' />
+                        <input type="text" name="title" value={postData.title}  onChange={handleInput} required id="title" placeholder='Title' />
                         <label htmlFor="name">Title</label>
-                        <textarea id="message" name="content" value={postData.content}  onChange={handleInput} required rows="4" cols="60" placeholder='Type your content here'></textarea>
+                        <textarea id="message" name="content" value={postData.content}  onChange={handleInput} required rows="4" cols="60" placeholder='Type your content here...'></textarea>
                         <label htmlFor="message" className='messageLabel' style={{ marginTop: "-229px" }}>Your Content</label>
 
 
