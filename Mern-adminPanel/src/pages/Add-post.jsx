@@ -26,6 +26,7 @@ function Addpost() {
                 
                 setImage(e.target.result);
                 setPostData({
+                    ...postData,
                     fileurl:e.target.result
                 })
                 
