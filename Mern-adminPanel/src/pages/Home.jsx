@@ -38,11 +38,11 @@ const Home = () => {
           setLoading(false)
         }
    }
-   const deletePost = async(e) =>{
+   const deletePost = async(id) =>{
       //  let id = await e.target;
       console.log("hi");
       
-        console.log(e.target);
+        console.log(id);
         
       //  const responce = await fetch(`https://alphacode.onrender.com/api/post/deletepost${id}`, {
       //   method:"DELETE",
@@ -113,9 +113,9 @@ const Home = () => {
          return<div className={css.postContainer} key={index}>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
            <div style={{color:"#767676", fontSize:"15px"}}>{postData.date}</div>
-           <div  onClick={()=>{deletePost()}} id={postData._id}>
-             <MdDelete  className={css.delete}  style={{ color: "rgb(185 183 183)", width: "25px", height: "25px" }} />
-             </div>
+        
+             <MdDelete  onClick={()=>{deletePost(postData._id)}}  className={css.delete}  style={{ color: "rgb(185 183 183)", width: "25px", height: "25px" }} />
+             
           </div>
           <h2 className={css.postHeading}>{postData.title}</h2>
 
