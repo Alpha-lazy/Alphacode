@@ -122,7 +122,7 @@ const Home = () => {
 
         <div style={{display:"flex",justifyContent:"space-between"}}>
           <p className={css.postMessage} style={{whiteSpace:"pre-wrap" }}>{postData.content}</p>
-          <img src={postData.fileurl} alt="" width="200px" height="200px" />
+          <img src={postData.fileurl} alt="" width="150px" height="150px" />
         </div>
         </div>})
         }
