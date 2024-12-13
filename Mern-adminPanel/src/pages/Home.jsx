@@ -19,7 +19,9 @@ const Home = () => {
   }
   if (!isAdmin) {
     let deleteicon = document.getElementById('delete');
+    let addPost = document.getElementById('addPost');
     deleteicon.style.display = 'none'
+    addPost.style.display = 'none'
   }
 
    const fetchdata = async() => {
@@ -78,7 +80,7 @@ const Home = () => {
 
 
   return <>
-      <button className={css.addPost} onClick={()=>{return navigate('/addpost')}}>
+      <button className={css.addPost} id="addPost" onClick={()=>{return navigate('/addpost')}}>
       <IoMdAdd style={{width:"30px", height:"30px"}} />
       </button>
     <div className={css.body}>
