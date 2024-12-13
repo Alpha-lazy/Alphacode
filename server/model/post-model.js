@@ -19,7 +19,7 @@ const postSchema = new Schema({
 
       date:{
         type:String,
-        default:`${date.toLocaleString("en-US", {
+        default:date.toLocaleString("en-US", {
           timeZone: "Asia/Kolkata",
           day: "2-digit",
           month: "short",
@@ -27,7 +27,7 @@ const postSchema = new Schema({
           hour: "2-digit",
           minute: "2-digit",
           hour12: true,
-        })}` 
+        })
       }
 })
 
