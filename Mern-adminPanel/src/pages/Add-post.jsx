@@ -26,6 +26,8 @@ function Addpost() {
                     ...postData,
                     fileurl:image
                 })
+                console.log(e.target.result);
+                
              };
 
              reader.onerror = (e) =>{
@@ -54,6 +56,8 @@ function Addpost() {
 
          
     }
+    console.log(postData);
+    
    
     const handleForm = async(e) =>{
           e.preventDefault();
