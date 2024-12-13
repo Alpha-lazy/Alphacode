@@ -72,12 +72,7 @@ const Home = () => {
 
     }
     fetchdata()
-    if (!isAdmin) {
-      let deleteicon = document.getElementById('delete');
-      let addPost = document.getElementById('addPost');
-      deleteicon.style.display = 'none'
-      addPost.style.display = 'none'
-    }
+    
   }, [])
 
 
@@ -141,6 +136,13 @@ const Home = () => {
 
 
   </>
+}
+
+if (!isAdmin) {
+  let deleteicon = document.getElementById('delete');
+  let addPost = document.getElementById('addPost');
+  deleteicon.style.display = 'none'
+  addPost.style.display = 'none'
 }
 
 export default Home
