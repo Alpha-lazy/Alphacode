@@ -39,28 +39,24 @@ const Home = () => {
         }
    }
    const deletePost = async(id) =>{
-      //  let id = await e.target;
-      console.log("hi");
-      
-        console.log(id);
-        
-      //  const responce = await fetch(`https://alphacode.onrender.com/api/post/deletepost${id}`, {
-      //   method:"DELETE",
-      //   headers:{
-      //     "Content-Type" :"application/json"
-      //   },
-      //  })
 
-      //  if (responce.ok) {
-      //      let data = await responce.json();
-      //      toast.success(data.message);
-      //      fetchdata()
-      //  }
-      //  else{
-      //   setData([])
-      //   let data = await responce.json();
-      //   toast.error(data.message);
-      //  }
+       const responce = await fetch(`https://alphacode.onrender.com/api/post/deletepost${id}`, {
+        method:"DELETE",
+        headers:{
+          "Content-Type" :"application/json"
+        },
+       })
+
+       if (responce.ok) {
+           let data = await responce.json();
+           toast.success(data.message);
+           fetchdata()
+       }
+       else{
+        setData([])
+        let data = await responce.json();
+        toast.error(data.message);
+       }
    }
 
   
