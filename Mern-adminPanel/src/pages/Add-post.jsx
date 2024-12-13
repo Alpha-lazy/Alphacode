@@ -24,7 +24,7 @@ function Addpost() {
              reader.onload = (e) =>{
                 setImage(e.target.result);
                 setPostData({
-                    ...postData,
+                
                     fileurl:image
                 })
                 console.log(e.target.result);
