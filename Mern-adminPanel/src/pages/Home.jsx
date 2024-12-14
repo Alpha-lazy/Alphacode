@@ -77,9 +77,12 @@ const Home = () => {
     },
     
     });
-    const res_data = await postData.json();
+    
     
     if (postData.ok) {
+      const res_data = await postData.json();
+      console.log(res_data);
+      
       setImage({
         title:res_data.title,
         content:res_data.content,
