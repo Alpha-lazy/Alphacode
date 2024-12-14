@@ -70,7 +70,7 @@ const Home = () => {
 
    const showImage = async(id) =>{
     const postData = await fetch(`https://alphacode.onrender.com/api/post/showpost${id}`,{
-      method:"POST",
+      method:"GET",
       headers:{
         "Content-Type" :"application/json"
     },
