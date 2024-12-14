@@ -141,7 +141,7 @@ const Home = () => {
 
            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:"5px"}}>
              <div>
-              <li style={{color:"white"}}><h2 className={css.postHeading}>{image.title}</h2></li>
+              <ul><li style={{color:"white"}}><h2 className={css.postHeading}>{image.title}</h2></li></ul>
               </div>
               <div onClick={()=>{close()}} style={{cursor:"pointer"}}>
               <RxCross1 style={{width:"25px",height:"25px",color:"#818181"}} />
