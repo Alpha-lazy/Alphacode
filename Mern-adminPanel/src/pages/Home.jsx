@@ -6,7 +6,7 @@ import { useAuth } from "../store/auth";
 import { MdDelete } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
 import { toast } from "react-toastify";
-
+import { RxCross1 } from "react-icons/rx";
 
 
 const Home = () => {
@@ -69,7 +69,7 @@ const Home = () => {
    }
 
    const showImage = async(id) =>{
-    document.getElementById('imgcontainer').style.display = 'block'
+    
     const postData = await fetch(`https://alphacode.onrender.com/api/post/showpost${id}`,{
       method:"GET",
       headers:{
@@ -88,6 +88,8 @@ const Home = () => {
         content:res_data[0].content,
         fileurl:res_data[0].fileurl
       })
+      document.getElementById('imgcontainer').style.display = 'block'
+      document.getElementById("imgcontainer").scrollIntoView({ behavior: "smooth" });
          
          
     }
@@ -101,9 +103,13 @@ const Home = () => {
        document.getElementById('imgcontainer').style.display = 'none'
       
     }
+
    }
  
   console.log(image);
+  const close = () =>{
+       document.getElementById('imgcontainer').style.display = 'none'
+  }
   
 
 
@@ -123,10 +129,19 @@ const Home = () => {
       <button style={isAdmin?{display:"block"}:{display:"none"}} className={css.addPost} id="addPost" onClick={()=>{return navigate('/addpost')}}>
       <IoMdAdd style={{width:"30px", height:"30px"}} />
       </button>
-      <div style={{display:"flex", justifyContent:"center",alignItems:"center"}}>
+      
+      
+      <div style={image.fileurl===""||image.fileurl===null?{display:"none"}:{display:"flex", justifyContent:"center",alignItems:"center"}}>
       <div className={css.imgcontainer} id="imgcontainer">
-               <h2 className={css.postHeading}>{image.title}</h2>
-               <div style={{display:"flex", justifyContent:"center"}}>
+
+           <div style={{display:"flex",justifyContent:"space-between"}}>
+
+              <li style={{color:"white"}}><h2 className={css.postHeading}>{image.title}</h2></li> 
+              <div onClick={()=>{close}} style={{cursor:"pointer"}}>
+              <RxCross1 style={{width:"35px",height:"35px",color:"#818181"}} />
+              </div>
+           </div>
+               <div style={{display:"flex", justifyContent:"center",marginTop:"20px"}}>
                {image.fileurl===""||image.fileurl===null?"":<img src={image.fileurl} width="500px" style={{margin:"auto"}} height="500px" alt="" />}
                </div>
                <p style={{whiteSpace:"pre-wrap", width:"78vw",overflowWrap:"break-word" ,color:"#fdfdfd",marginTop:"41px", fontSize:"18px"}}>{image.content}</p>
