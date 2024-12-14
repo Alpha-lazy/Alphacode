@@ -138,7 +138,7 @@ const Home = () => {
       <div style={image.fileurl===""||image.fileurl===null?{display:"none"}:{display:"flex", justifyContent:"center",alignItems:"center"}}>
       <div className={css.imgcontainer} id="imgcontainer">
 
-           <div style={{display:"flex",justifyContent:"space-between",marginTop:"10px"}}>
+           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:"10px"}}>
              <div>
               <h2 className={css.postHeading}>{image.title}</h2> 
               </div>
