@@ -106,9 +106,11 @@ const Home = () => {
 
    }
  
-  console.log(image);
+ 
   const close = () =>{
        document.getElementById('imgcontainer').style.display = 'none'
+       console.log('clicked');
+       
   }
   
 
@@ -134,10 +136,10 @@ const Home = () => {
       <div style={image.fileurl===""||image.fileurl===null?{display:"none"}:{display:"flex", justifyContent:"center",alignItems:"center"}}>
       <div className={css.imgcontainer} id="imgcontainer">
 
-           <div style={{display:"flex",justifyContent:"space-between"}}>
+           <div style={{display:"flex",justifyContent:"space-between",marginTop:"10px"}}>
 
-              <li style={{color:"white"}}><h2 className={css.postHeading}>{image.title}</h2></li> 
-              <div onClick={()=>{close}} style={{cursor:"pointer"}}>
+              <h2 className={css.postHeading}>{image.title}</h2> 
+              <div onClick={()=>{close()}} style={{cursor:"pointer"}}>
               <RxCross1 style={{width:"35px",height:"35px",color:"#818181"}} />
               </div>
            </div>
