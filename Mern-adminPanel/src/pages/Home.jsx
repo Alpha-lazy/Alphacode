@@ -129,7 +129,7 @@ const Home = () => {
                <div style={{display:"flex", justifyContent:"center"}}>
                {image.fileurl===""||image.fileurl===null?"":<img src={image.fileurl} width="500px" style={{margin:"auto"}} height="500px" alt="" />}
                </div>
-               <p style={{whiteSpace:"pre-wrap", width:"700px",overflowWrap:"break-word" ,color:"white",marginTop:"41px", fontSize:"20px"}}>{image.content}</p>
+               <p style={{whiteSpace:"pre-wrap", width:"78vw",overflowWrap:"break-word" ,color:"#fdfdfd",marginTop:"41px", fontSize:"18px"}}>{image.content}</p>
               
       </div>
       </div>
@@ -195,3 +195,5 @@ const Home = () => {
 
 
 export default Home
+
+
