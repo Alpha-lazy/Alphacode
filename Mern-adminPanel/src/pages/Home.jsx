@@ -60,6 +60,7 @@ const Home = () => {
            let data = await responce.json();
            toast.success(data.message);
            document.getElementById('imgcontainer').style.display = 'none'
+           document.getElementById("postcontainer").scrollIntoView({ behavior: "smooth" });
            fetchdata()
        }
        else{
@@ -138,10 +139,11 @@ const Home = () => {
       <div className={css.imgcontainer} id="imgcontainer">
 
            <div style={{display:"flex",justifyContent:"space-between",marginTop:"10px"}}>
-
+             <div>
               <h2 className={css.postHeading}>{image.title}</h2> 
+              </div>
               <div onClick={()=>{close()}} style={{cursor:"pointer"}}>
-              <RxCross1 style={{width:"35px",height:"35px",color:"#818181"}} />
+              <RxCross1 style={{width:"25px",height:"25px",color:"#818181"}} />
               </div>
            </div>
                <div style={{display:"flex", justifyContent:"center",marginTop:"20px"}}>
@@ -155,7 +157,7 @@ const Home = () => {
 
   
    
-      <div className={css.container}>
+      <div className={css.container} id="postcontainer">
 
         {/* <section className={css.infocontainer}>
                 <div className={css.info}>
