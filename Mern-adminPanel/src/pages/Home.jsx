@@ -126,7 +126,7 @@ const Home = () => {
       <div style={{display:"flex", justifyContent:"center",alignItems:"center"}}>
       <div className={css.imgcontainer} id="imgcontainer">
                <h2 className={css.postHeading}>{image.title}</h2>
-               <div style="display: flex; justify-content: center;">
+               <div style={{display:"flex", justifyContent:"center"}}>
                {image.fileurl===""||image.fileurl===null?"":<img src={image.fileurl} width="500px" style={{margin:"auto"}} height="500px" alt="" />}
                </div>
                <p style={{whiteSpace:"pre-wrap", width:"700px",overflowWrap:"break-word" ,color:"white"}}>{image.content}</p>
