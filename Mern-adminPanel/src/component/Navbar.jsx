@@ -12,7 +12,7 @@ const Navbar = () => {
           <header>
             <div className={css.container}>
                 <div className={css.logo}>
-                    <NavLink to="/">Alphacode</NavLink>
+                    <NavLink to="/">Sigma Trade</NavLink>
                 </div>
 
                 <nav className={css.navbar}>

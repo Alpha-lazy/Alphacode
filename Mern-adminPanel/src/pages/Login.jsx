@@ -4,7 +4,7 @@ import { useAuth } from "../store/auth"
 import css from "./Login.module.css"
 import { useState } from "react"
 import { useEffect } from "react"
-import Loginimage from "../image/Login-rafiki.png"
+import Loginimage from "../image/image.png"
 import {toast} from 'react-toastify';
 
 
