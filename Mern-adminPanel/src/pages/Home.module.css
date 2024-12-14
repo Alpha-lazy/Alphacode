@@ -58,7 +58,9 @@ border:2px solid white,
     height: auto;
     overflow-y: scroll;
     background-color: rgba(46, 46, 46, 0.212);
+    padding: 10px;
     display: none;
+    border-radius: 10px;
 }
 
 .imgcontainer::-webkit-scrollbar{
