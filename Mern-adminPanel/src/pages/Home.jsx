@@ -65,6 +65,7 @@ const Home = () => {
        }
        else{
         setData([])
+        document.getElementById('imgcontainer').style.display = 'none'
         let data = await responce.json();
         toast.error(data.message);
        }
@@ -138,9 +139,9 @@ const Home = () => {
       <div style={image.fileurl===""||image.fileurl===null?{display:"none"}:{display:"flex", justifyContent:"center",alignItems:"center"}}>
       <div className={css.imgcontainer} id="imgcontainer">
 
-           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:"10px"}}>
+           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:"5px"}}>
              <div>
-              <h2 className={css.postHeading}>{image.title}</h2> 
+              <li style={{color:"white"}}><h2 className={css.postHeading}>{image.title}</h2></li>
               </div>
               <div onClick={()=>{close()}} style={{cursor:"pointer"}}>
               <RxCross1 style={{width:"25px",height:"25px",color:"#818181"}} />
@@ -157,7 +158,7 @@ const Home = () => {
 
   
    
-      <div className={css.container} id="postcontainer">
+      <div className={css.container} >
 
         {/* <section className={css.infocontainer}>
                 <div className={css.info}>
@@ -184,7 +185,7 @@ const Home = () => {
          :data.length === 0 
          ?<h3 style={{color:"white"}}>{message}</h3>
          :data.map((postData, index)=>{
-         return<div className={css.postContainer} onClick={()=>{showImage(postData._id)}} key={index}>
+         return<div className={css.postContainer} id="postcontainer" onClick={()=>{showImage(postData._id)}} key={index}>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
            <div style={{color:"#767676", fontSize:"15px"}}>{postData.date}</div>
         
