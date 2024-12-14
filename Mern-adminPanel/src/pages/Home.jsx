@@ -196,7 +196,7 @@ const Home = () => {
 
         <div style={{display:"flex",justifyContent:"space-between"}}>
           <p className={css.postMessage} style={{whiteSpace:"pre-wrap", width:"700px",overflowWrap:"break-word" }}>{postData.content}</p>
-          {image.fileurl===""||image.fileurl===null?<img src={postData.fileurl} alt="" width="150px" height="150px" style={{marginLeft:"10px"}} />:""}
+          {postData.fileurl===""||postData.fileurl===null?"":<img src={postData.fileurl} alt="" width="150px" height="150px" style={{marginLeft:"10px"}}/>}
         </div>
         </div>})
         }
