@@ -59,6 +59,7 @@ const Home = () => {
        if (responce.ok) {
            let data = await responce.json();
            toast.success(data.message);
+           document.getElementById('imgcontainer').style.display = 'none'
            fetchdata()
        }
        else{
