@@ -4,6 +4,7 @@ const PostControllr = require('../controller/post-controller')
 
 router.route("/").get(PostControllr.post);
 router.route("/addpost").post(PostControllr.addpost);
+router.route("/showpost:id").get(PostControllr.showpost);
 router.route("/deletepost:id").delete(PostControllr.deletePost);
 
 

@@ -3,7 +3,21 @@ const Post = require("../model/post-model");
 
 const post = async(req,res) =>{
      try {
-         const data = await Post.find(req.body);
+         const data = await Post.find({});
+
+         if (data.length === 0) {
+            return res.status(400).json({message:"No any post found"})
+         }
+
+         res.status(200).json(data)
+         
+     } catch (error) {
+        res.status(500).json({message:"Internal Server Error"})
+     }
+}
+const showpost = async(req,res) =>{
+     try {
+         const data = await Post.find({_id:req.params.id});
 
          if (data.length === 0) {
             return res.status(400).json({message:"No any post found"})
@@ -39,4 +53,4 @@ const deletePost= async(req,res) =>{
    }
 }
 
-module.exports = {addpost, deletePost, post}
+module.exports = {addpost, deletePost, post,showpost}

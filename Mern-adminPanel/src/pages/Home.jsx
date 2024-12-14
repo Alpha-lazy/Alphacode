@@ -68,13 +68,13 @@ const Home = () => {
        }
    }
 
-   const showUmage = async(id) =>{
-    const postData = await fetch('https://alphacode.onrender.com/api/post/',{
-      method:"GET",
+   const showImage = async(id) =>{
+    const postData = await fetch(`https://alphacode.onrender.com/api/post/showpost${id}`,{
+      method:"POST",
       headers:{
         "Content-Type" :"application/json"
     },
-    body: JSON.stringify({_id:id})
+    
     });
     const res_data = await postData.json();
     
@@ -149,7 +149,7 @@ const Home = () => {
          :data.length === 0 
          ?<h3 style={{color:"white"}}>{message}</h3>
          :data.map((postData, index)=>{
-         return<div className={css.postContainer} onClick={()=>{showUmage(postData._id)}} key={index}>
+         return<div className={css.postContainer} onClick={()=>{showImage(postData._id)}} key={index}>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
            <div style={{color:"#767676", fontSize:"15px"}}>{postData.date}</div>
         
