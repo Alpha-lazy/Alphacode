@@ -52,8 +52,7 @@ border:2px solid white,
 }
 
 .imgcontainer{
-    display: flex;
-    justify-content: center;
+
     width: 80vw;
     max-height: 900px;
     height: auto;

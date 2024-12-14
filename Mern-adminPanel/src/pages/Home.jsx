@@ -69,6 +69,7 @@ const Home = () => {
    }
 
    const showImage = async(id) =>{
+    document.getElementById('imgcontainer').style.display = 'block'
     const postData = await fetch(`https://alphacode.onrender.com/api/post/showpost${id}`,{
       method:"GET",
       headers:{
@@ -79,18 +80,27 @@ const Home = () => {
     const res_data = await postData.json();
     
     if (postData.ok) {
-      setImage(res_data)
-         document.getElementById('imgcontainer').style.display = 'block'
+      setImage({
+        title:res_data.title,
+        content:res_data.content,
+        fileurl:res_data.fileurl
+      })
+         
          
     }
     else{
-     setImage({})
+     setImage({
+      title:"",
+      content:"",
+      fileurl:""
+     })
       setMessage(data.message)
        document.getElementById('imgcontainer').style.display = 'none'
       
     }
    }
  
+  console.log(image);
   
 
 
@@ -113,7 +123,7 @@ const Home = () => {
       <div style={{display:"flex", justifyContent:"center",alignItems:"center"}}>
       <div className={css.imgcontainer} id="imgcontainer">
                <h2 className={css.postHeading}>{image.title}</h2>
-               {image.fileurl===""||image.fileurl===null?"":<img src={image.fileurl} width="500px" height="500px" alt="" />}
+               {image.fileurl===""||image.fileurl===null?"":<img src={image.fileurl} width="500px" style={{margin:"auto"}} height="500px" alt="" />}
                <p style={{whiteSpace:"pre-wrap", width:"700px",overflowWrap:"break-word" ,color:"white"}}>{image.content}</p>
               
       </div>
