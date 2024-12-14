@@ -154,7 +154,7 @@ const Home = () => {
               
       </div>
       </div>
-    <div className={css.body}>
+    <div className={css.body} id="postcontainer">
 
   
    
@@ -185,7 +185,7 @@ const Home = () => {
          :data.length === 0 
          ?<h3 style={{color:"white"}}>{message}</h3>
          :data.map((postData, index)=>{
-         return<div className={css.postContainer} id="postcontainer" onClick={()=>{showImage(postData._id)}} key={index}>
+         return<div className={css.postContainer}  onClick={()=>{showImage(postData._id)}} key={index}>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
            <div style={{color:"#767676", fontSize:"15px"}}>{postData.date}</div>
         
