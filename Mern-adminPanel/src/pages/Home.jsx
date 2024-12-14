@@ -84,9 +84,9 @@ const Home = () => {
       console.log(res_data);
       
       setImage({
-        title:res_data.title,
-        content:res_data.content,
-        fileurl:res_data.fileurl
+        title:res_data[0].title,
+        content:res_data[0].content,
+        fileurl:res_data[0].fileurl
       })
          
          
