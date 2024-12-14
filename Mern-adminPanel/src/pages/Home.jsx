@@ -90,7 +90,7 @@ const Home = () => {
       
     }
    }
-
+ 
   
 
 
@@ -110,14 +110,17 @@ const Home = () => {
       <button style={isAdmin?{display:"block"}:{display:"none"}} className={css.addPost} id="addPost" onClick={()=>{return navigate('/addpost')}}>
       <IoMdAdd style={{width:"30px", height:"30px"}} />
       </button>
-    <div className={css.body}>
-
-      <div className={css.container} id="imgcontainer">
+      <div style={{display:"flex", justifyContent:"center",alignItems:"center"}}>
+      <div className={css.imgcontainer} id="imgcontainer">
                <h2 className={css.postHeading}>{image.title}</h2>
                {image.fileurl===""||image.fileurl===null?"":<img src={image.fileurl} width="500px" height="500px" alt="" />}
                <p style={{whiteSpace:"pre-wrap", width:"700px",overflowWrap:"break-word" ,color:"white"}}>{image.content}</p>
               
       </div>
+      </div>
+    <div className={css.body}>
+
+  
    
       <div className={css.container}>
 
