@@ -7,7 +7,10 @@ import {toast} from 'react-toastify';
 
 const Register = () =>{
    const navigate = useNavigate();
-    
+   const {storeTokenInLS,Connect,isAdmin} = useAuth();
+   if (!isAdmin) {
+    return  <Navigate to="/"/>
+}
        const[user,setUser] = useState({
           username:"",
           email:"",
@@ -15,10 +18,8 @@ const Register = () =>{
           password:""
        })
        const [userOtp,setUserOtp] = useState("")
-    const {storeTokenInLS,Connect,isAdmin} = useAuth();
-    if (!isAdmin) {
-          <Navigate to="/"/>
-    }
+   //  const {storeTokenInLS,Connect,isAdmin} = useAuth();
+   
     
        const handleInput =(e) =>{
          let name = e.target.name
